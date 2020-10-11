@@ -1,4 +1,4 @@
-<%@page import="service.InventoryServiceimpl" %>
+<%@page import="service.InventoryServiceimpl"%>
 <%@page import="service.IInventoryService"%>
 <%@page import="Model.Inventory"%>
 <%@page import="java.util.ArrayList"%>
@@ -13,7 +13,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
- <head>
+<head>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -40,12 +40,12 @@
 <body>
 
 
-	
-	<div class="container" style="width:100%;">
+
+	<div class="container" style="width: 100%;">
 		<h1 class="h3 mb-3">Profile</h1>
-		
+
 		<div class="row">
-			<div class="col-md-4 col-xl-3"style="width:25%;">
+			<div class="col-md-4 col-xl-3" style="width: 25%;">
 				<div class="card mb-3">
 					<div class="card-header">
 
@@ -63,9 +63,8 @@
 								<div>
 
 
-								 <a
-										class="btn btn-primary btn-sm" href="#">Logout
-										<span class="
+									<a class="btn btn-primary btn-sm" href="#">Logout <span
+										class="
 glyphicon glyphicon-log-out"></span>
 									</a>
 
@@ -86,10 +85,10 @@ glyphicon glyphicon-log-out"></span>
 									<li><a href="AddInventory.jsp">Add Inventory</a></li>
 									<li><a href="#">Request For Repair</a></li>
 									<li><a href="#">Report</a></li>
-									
+
 									</a>
-										
-							   </ul>
+
+								</ul>
 
 
 
@@ -107,42 +106,43 @@ glyphicon glyphicon-log-out"></span>
 
 				</div>
 			</div>
-			<div class="col-md-8 col-xl-9" style="width:75%;">
+			<div class="col-md-8 col-xl-9" style="width: 75%;">
 				<div class="card" style="height: 1000px;">
 					<div class="card-header">
-						<h5 class="card-title mb-0"> Inventories</h5>
+						<h5 class="card-title mb-0">Inventories</h5>
 						<div class="card-body h-100"></div>
 					</div>
-					
-					
-<br><br>
+
+
+					<br>
+					<br>
 
 
 
-		<table border="1" cellpadding="12"  class="table table-hover"      >
-	
-		 <thead>
-		  <tr>
-                 <th>Car ID</th>
-                
-                <th>Model</th>
-                <th>Category</th>
-                <th>Sup ID</th>
-                 <th>Description</th>
-                   <th>N.O.P</th>
-                  
-                    
-                    <th></th> 
-                    <th></th>             
-              
-          
-                        
-                
-                
-            </tr>	
-            
-          </thead>  							
-            <%
+					<table border="1" cellpadding="12" class="table table-hover">
+
+						<thead>
+							<tr>
+								<th>Car ID</th>
+
+								<th>Model</th>
+								<th>Category</th>
+								<th>Sup ID</th>
+								<th>Description</th>
+								<th>N.O.P</th>
+
+
+								<th></th>
+								<th></th>
+
+
+
+
+
+							</tr>
+
+						</thead>
+						<%
             String id= request.getParameter("id");
             System.out.println(id);
             IInventoryService iInventoryservice = new InventoryServiceimpl();
@@ -151,52 +151,55 @@ glyphicon glyphicon-log-out"></span>
 			
 			for(Inventory invetory : arrayList){
 			%>
-			
-			 <tbody>
-			 <tr>
-			 
-				<td> <%=invetory.getCarID() %> </td>
-				
-				<td> <%=invetory.getModel() %> </td>
-				<td> <%=invetory.getCategory() %> </td>
-				
-				<td> <%=invetory.getSupplierID() %> </td>
-				<td> <%=invetory.getDescription() %> </td>
-				<td> <%=invetory.getNoOfPassengers() %> </td>
-				
+
+						<tbody>
+							<tr>
+
+								<td><%=invetory.getCarID() %></td>
+
+								<td><%=invetory.getModel() %></td>
+								<td><%=invetory.getCategory() %></td>
+
+								<td><%=invetory.getSupplierID() %></td>
+								<td><%=invetory.getDescription() %></td>
+								<td><%=invetory.getNoOfPassengers() %></td>
 
 
-										
-				
-				<td><a href="update_inventory.jsp?CarID=<%=invetory.getCarID() %>"><button >Update</button></a></td>
-					
-					
-				<td><form method="POST" action="DeleteInventoryServlet?CarID=<%=invetory.getCarID() %>"><button>Delete</button></form></td>
-				
-			
-				
-				
-			
-					
-			</tr>
-			 </tbody>
-				
-			
-						
-					
-			<%	
+
+
+
+								<td><a
+									href="update_inventory.jsp?CarID=<%=invetory.getCarID() %>"><button>Update</button></a></td>
+
+
+								<td><form method="POST"
+										action="DeleteInventoryServlet?CarID=<%=invetory.getCarID() %>">
+										<button>Delete</button>
+									</form></td>
+
+
+
+
+
+
+							</tr>
+						</tbody>
+
+
+
+
+						<%	
 			   }
-            %>     
-		</table>
+            %>
+					</table>
 
 
 
 
 
 
-				
-					<br>
-					<br>
+
+					<br> <br>
 
 				</div>
 

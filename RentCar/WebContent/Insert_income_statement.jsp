@@ -61,8 +61,8 @@
 								<div>
 
 
-									<a href="Adminlogin.jsp"><input type="submit" value="logout"
-										class="btn btn-primary btn-sm"> </a>
+									<a href="Adminlogin.jsp"><input type="submit"
+										value="logout" class="btn btn-primary btn-sm"> </a>
 
 								</div>
 							</form>
@@ -77,28 +77,22 @@
 							<div>
 								<nav class='animated bounceInDown'>
 								<ul>
-									
+
 									<li class='sub-menu'><a href='#'>IncomeStatement
 											<div class='fa fa-caret-down right'></div>
 									</a>
 										<ul>
-											<li><a href="Insert_income_statement.jsp">Calculate IncomeStatement</a></li>
-											<li><a href="View_IncomeStatement.jsp">View IncomeStatement</a></li>
+											<li><a href="Insert_income_statement.jsp">Calculate
+													IncomeStatement</a></li>
+											<li><a href="View_IncomeStatement.jsp">View
+													IncomeStatement</a></li>
 										</ul>
-										
-										
-										
 									<li class='sub-menu'><a href='Insert_Rates.jsp'>Rates
 											<div class='fa fa-caret-down right'></div>
 									</a>
-									
 									<li class='sub-menu'><a href='#'>Report
 											<div class='fa fa-caret-down right'></div>
 									</a>
-										
-										
-										
-										
 								</ul>
 
 
@@ -123,75 +117,87 @@
 					<div class="card-header">
 						<h5 class="card-title mb-0">INCOME_STATEMENT</h5>
 						<div class="card-body h-100"></div>
-	
-			
-			
-			
-			
-			
-	
-	<form method="post" action="calculated_income_statement.jsp">			
-			<p id="date" style=" margin-top:60px;">Enter the date<input type="date" name="date"    required></p>
-			
-			<table border="3"  style="height:180%; width:100%; margin-top:10px; background-color:white;">
-			
-			
-					<tr>
-						<td bgcolor="#8080ff" id="td1"><b style="margin-left:50px;font-size:20px;">INCOME</b></td>
-						<td></td>
-					</tr>
-							
-					<tr>
-						<td id="td1"><p id="p1"> Rent income</p></td>
-						<td style="padding:5px;"><input type="number"  name="Rent_income" style="margin-right:-50px;"  required></td>
-					</tr>
-								
-					<tr>
-						<td id="td1"><p id="p1">Other income</p></td>
-						<td style="padding:5px;" > <input type="number"  name="other_income" style="margin-right:-50px;" required></td>
-					</tr>
-							
-					<tr>
-						<td bgcolor="#8080ff"  id="td1"><b style="margin-left:50px;font-size:20px;">EXPENSES</b></td>
-						<td ></td>
-					</tr>
-		
-					<tr>
-						<td   id="td1"><p id="p1">Salary</p></td>
-						<td  style="padding:5px;"><input type="number"  name="Salary"  style="margin-right:-50px;"  required></td>
-					</tr>
-										
-					<tr>
-						<td   id="td1"><p id="p1">Maintance</p></td>
-						<td   style="padding:5px;"><input type="number"  name="maintance"  style="margin-right:-50px;"  required></td>
-					</tr>
-									
-					<tr>
-						<td   id="td1"><p id="p1">Electricity</p></td>
-						<td   style="padding:5px;"><input type="number"  name="electricity"  style="margin-right:-50px;"  required></td>
-					</tr>
-					
-					<tr>
-						<td   id="td1"><p id="p1">Rent expenses</p></td>
-						<td   style="padding:5px;"><input type="number"  name="rent_expenses"  style="margin-right:-50px;"  required></td>
-					</tr>
-					
-					<tr>
-						<td   id="td1"><p id="p1">Other expenses</p></td>
-						<td   style="padding:5px;"><input type="number"  name="other_expenses"  style="margin-right:-50px;"  required></td>
-					</tr>
-			
-				
-			
-			</table>
-	
-						
-					<input type="submit" value="CALCULATE" class="btn btn-success " style="margin-left:540px;margin-top:10px;width:150px;height:45px;background-color:#8080ff;">	
-						
-				</div>
 
-	</form>
-					
+
+
+
+
+
+
+						<form method="post" action="calculated_income_statement.jsp">
+							<p id="date" style="margin-top: 60px;">
+								Enter the date<input type="date" name="date" required>
+							</p>
+
+							<table border="3"
+								style="height: 180%; width: 100%; margin-top: 10px; background-color: white;">
+
+
+								<tr>
+									<td bgcolor="#8080ff" id="td1"><b
+										style="margin-left: 50px; font-size: 20px;">INCOME</b></td>
+									<td></td>
+								</tr>
+
+								<tr>
+									<td id="td1"><p id="p1">Rent income</p></td>
+									<td style="padding: 5px;"><input type="number"
+										name="Rent_income" style="margin-right: -50px;" required></td>
+								</tr>
+
+								<tr>
+									<td id="td1"><p id="p1">Other income</p></td>
+									<td style="padding: 5px;"><input type="number"
+										name="other_income" style="margin-right: -50px;" required></td>
+								</tr>
+
+								<tr>
+									<td bgcolor="#8080ff" id="td1"><b
+										style="margin-left: 50px; font-size: 20px;">EXPENSES</b></td>
+									<td></td>
+								</tr>
+
+								<tr>
+									<td id="td1"><p id="p1">Salary</p></td>
+									<td style="padding: 5px;"><input type="number"
+										name="Salary" style="margin-right: -50px;" required></td>
+								</tr>
+
+								<tr>
+									<td id="td1"><p id="p1">Maintance</p></td>
+									<td style="padding: 5px;"><input type="number"
+										name="maintance" style="margin-right: -50px;" required></td>
+								</tr>
+
+								<tr>
+									<td id="td1"><p id="p1">Electricity</p></td>
+									<td style="padding: 5px;"><input type="number"
+										name="electricity" style="margin-right: -50px;" required></td>
+								</tr>
+
+								<tr>
+									<td id="td1"><p id="p1">Rent expenses</p></td>
+									<td style="padding: 5px;"><input type="number"
+										name="rent_expenses" style="margin-right: -50px;" required></td>
+								</tr>
+
+								<tr>
+									<td id="td1"><p id="p1">Other expenses</p></td>
+									<td style="padding: 5px;"><input type="number"
+										name="other_expenses" style="margin-right: -50px;" required></td>
+								</tr>
+
+
+
+							</table>
+
+
+							<input type="submit" value="CALCULATE" class="btn btn-success "
+								style="margin-left: 540px; margin-top: 10px; width: 150px; height: 45px; background-color: #8080ff;">
+					</div>
+
+					</form>
+
 				</div>
 			</div>
 		</div>

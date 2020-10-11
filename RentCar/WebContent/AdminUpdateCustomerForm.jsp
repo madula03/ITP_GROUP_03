@@ -1,10 +1,10 @@
-<%@page import="service.CustomerImp" %>
-<%@page import="service.ICustomer" %>
+<%@page import="service.CustomerImp"%>
+<%@page import="service.ICustomer"%>
 <%@page import="Model.Customer"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.Connection"%>
 
-<%@page import="Servlet.AdminGetCustomerServlet" %>
+<%@page import="Servlet.AdminGetCustomerServlet"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -29,21 +29,15 @@
 
 <title>Customer</title>
 <style>
-
 body {
 	margin-top: 20px;
 	background-color: #ffffff;
-	
 }
 
 .card {
 	margin-bottom: 1.5rem;
 	box-shadow: 0 1px 15px 1px rgba(52, 40, 104, .08);
 }
-
-
-
-
 
 .card {
 	position: relative;
@@ -67,8 +61,6 @@ body {
 	border-bottom-width: 1px;
 }
 
-
-
 .card-header {
 	padding: .75rem 1.25rem;
 	margin-bottom: 0;
@@ -79,8 +71,8 @@ body {
 
 .UPPER_card-header {
 	border-bottom-width: 5px;
-	
 }
+
 .UPPER_card-header {
 	padding: .75rem 1.25rem;
 	margin-bottom: 0;
@@ -88,8 +80,6 @@ body {
 	background-color: #red;
 	border-bottom: 1px solid #e5e9f2;
 }
-
-
 
 nav {
 	position: relative;
@@ -110,7 +100,7 @@ nav ul li {
 
 nav ul li a {
 	display: block;
-		background: #ffffff;
+	background: #ffffff;
 	padding: 10px 15px;
 	color: #333;
 	text-decoration: none;
@@ -122,7 +112,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-background: #808080;
+	background: #808080;
 	color: #515151;
 }
 
@@ -144,7 +134,7 @@ nav ul li ul li a {
 }
 
 nav ul li ul li a:hover {
-		background: #ffffff;
+	background: #ffffff;
 	border-left: 4px solid #3498db;
 }
 
@@ -161,42 +151,40 @@ center {
 }
 
 th {
-  background-color: #133f75;
-  color: white;
+	background-color: #133f75;
+	color: white;
 }
 
 button {
-  background-color: #133f75;
-  color: white;
+	background-color: #133f75;
+	color: white;
 }
 
-
-
 table {
-  border-collapse: collapse;
-  width: 100%;
+	border-collapse: collapse;
+	width: 100%;
 }
 
 th, td {
-  text-align: left;
-  padding: 8px;
+	text-align: left;
+	padding: 8px;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(even) {
+	background-color: #f2f2f2
+}
 
 th {
-  background-color: #133f75;
-  color: white;
+	background-color: #133f75;
+	color: white;
 }
-
-
 </style>
 </head>
 
 <body>
 
 
-       
+
 
 
 	<div class="container">
@@ -223,8 +211,7 @@ th {
 
 
 									<input type="submit" value="logout"
-										class="btn btn-primary btn-sm">
-									</a>
+										class="btn btn-primary btn-sm"> </a>
 
 								</div>
 							</form>
@@ -239,20 +226,22 @@ th {
 							<div>
 								<nav class='animated bounceInDown'>
 								<ul>
-									
+
 									<li class='sub-menu'><a href='#'>Customer Details
 											<div class='fa fa-caret-down right'></div>
 									</a>
 										<ul>
-											<li><a href="AdminViewCustomer.jsp">Current Customer Details</a></li>
-											<li><a href="AdminUpdateCustomer.jsp">Update/Delete Customers</a></li>
-											<li><a href="AddPastCustomer.jsp">Past Customer Details</a></li>
+											<li><a href="AdminViewCustomer.jsp">Current Customer
+													Details</a></li>
+											<li><a href="AdminUpdateCustomer.jsp">Update/Delete
+													Customers</a></li>
+											<li><a href="AddPastCustomer.jsp">Past Customer
+													Details</a></li>
 										</ul>
-									
 									<li><a href="#">Reports</a></li>
 									<li><a href="#">Mail</a></li>
-									
-									
+
+
 								</ul>
 
 
@@ -273,15 +262,15 @@ th {
 				</div>
 			</div>
 			<div class="col-md-8 col-xl-9">
-				<div class="card" style="height:800px;">
+				<div class="card" style="height: 800px;">
 					<div class="card-header">
 						<h5 class="card-title mb-0">Rates</h5>
 						<div class="card-body h-100"></div>
 					</div>
-			
-			
-			       
- <%
+
+
+
+					<%
 
 
 String NIC=(String)request.getParameter("NIC");
@@ -291,50 +280,47 @@ String NIC=(String)request.getParameter("NIC");
 Customer customer = admingetcustomerservlet.get_Customer_details(NIC);
 
 %>
-  
-			
-															
-			 <form action="AdminUpdateServlet?NIC=<%=customer.getNIC()%>" method="post">
-	
-         		 <h1>Customer Details</h1>
-				 
-	
-				
-				
-					<label for="lno">License Number</label>
-					 <br> <input type="text"  name="LicenseNum" value="<%=customer.getLicenseNum()%>" > <br>
-					
-				
-					<label for="end date">License End Date</label> 
-					<br> <input	type="date"  name="LicenseEndDate" value="<%=customer.getLicenseEndDate()%>" >
-				
-				
-					<br> <label for="address">Address</label>
-					 <br> <input type="text"  name="Address"  value="<%=customer.getAddress()%>" ><br>
-			
-			
-					 <label for="phone">Contact Number</label>
-					 <br> <input	type="tel"  name="Phone"  value="<%=customer.getPhone()%>" > <br>
-			 
-					<label for="email">E-mail</label> 
-					<br> <input type="email" id="email" name="Email" value="<%=customer.getEmail()%>" > <br> <br>
-			
-				
-			<input class="Update" type="submit" value="Update" name="Update">
-		</form>
-	</div>
-	
-	
-	
-	
-						
+
+
+
+					<form action="AdminUpdateServlet?NIC=<%=customer.getNIC()%>"
+						method="post">
+
+						<h1>Customer Details</h1>
+
+
+
+
+						<label for="lno">License Number</label> <br> <input
+							type="text" name="LicenseNum"
+							value="<%=customer.getLicenseNum()%>"> <br> <label
+							for="end date">License End Date</label> <br> <input
+							type="date" name="LicenseEndDate"
+							value="<%=customer.getLicenseEndDate()%>"> <br> <label
+							for="address">Address</label> <br> <input type="text"
+							name="Address" value="<%=customer.getAddress()%>"><br>
+
+
+						<label for="phone">Contact Number</label> <br> <input
+							type="tel" name="Phone" value="<%=customer.getPhone()%>">
+						<br> <label for="email">E-mail</label> <br> <input
+							type="email" id="email" name="Email"
+							value="<%=customer.getEmail()%>"> <br> <br> <input
+							class="Update" type="submit" value="Update" name="Update">
+					</form>
 				</div>
 
 
-					
-				</div>
+
+
+
 			</div>
+
+
+
 		</div>
+	</div>
+	</div>
 
 
 	<script>
@@ -348,7 +334,7 @@ $(".sub-menu a").click(function () {
 
 
 
- 
+
 
 
 

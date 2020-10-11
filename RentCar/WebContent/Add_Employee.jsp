@@ -38,7 +38,7 @@
 <body>
 
 
-	<div class="container" >
+	<div class="container">
 		<h1 class="h3 mb-3">Profile</h1>
 		<div class="row">
 			<div class="col-md-4 col-xl-3">
@@ -75,14 +75,15 @@
 						<div class="card-body text-center">
 
 							<div>
-									<nav class='animated bounceInDown'>
+								<nav class='animated bounceInDown'>
 								<ul>
 									<li class='sub-menu'><a href='#'>Employees
 											<div class='fa fa-caret-down right'></div>
 									</a>
 										<ul>
-											<li><a href="Add_Employee.jsp">Add new	employees</a></li>
-											<li><a href="Present_employees.jsp">Present	employees</a></li>
+											<li><a href="Add_Employee.jsp">Add new employees</a></li>
+											<li><a href="Present_employees.jsp">Present
+													employees</a></li>
 											<li><a href="past_employee.jsp">Past employees</a></li>
 										</ul>
 									<li><a href="Add_Salary.jsp">Salary</a></li>
@@ -110,58 +111,49 @@
 						<div class="card-body h-100"></div>
 					</div>
 
-					    <form class="form-container" action="./AddEmployee"  method="post"  id="ticket_submit">
-	
-				
-				<label>First Name</label>
-				<input type="text" class="form-control" id="exampleInputFName"   name="fname"    required     >
-				<br>
-				
-				<label>Last Name</label>
-				<input type="text" class="form-control" id="exampleInputFName"   name="lname"   required>
-				<br>
-				
-				<label>Employee Id</label>
-				<input type="number" class="form-control" id="exampleInputPassword1"   name="empid"  required><br>
-				
-				<label>NIC num</label>
-				<input type="text" class="form-control" id="exampleInputFName"   name="nic" pattern="[0-9]{9}[vV]{1}"   required     >
-				<br>
-				
-				<label>Address</label>
-				<input type="text" class="form-control" id="exampleInputFName"   name="address"    required     >
-				<br>
-				
-				<label>Phone Number</label>
-				<input type="phone" class="form-control" id="exampleInputFName"   name="phone"  pattern="[0-9]{3}[0-9]{7}"  required     >
-				<br>
-				
-				<label>Email Id</label>
-				<input type="email" class="form-control" id="exampleInputFName"   name="email"         >
-				<br>
-				
-				<label>Job role</label>
-				<input type="text" class="form-control" id="exampleInputFName"   name="job"    required     >
-				<br>
-				
-				<label>Basic salary per month</label>
-				<input type="number" class="form-control" id="exampleInputFName"   name="bsal"    required     >
-				<br>
-				
-				<div>
-				<br><br>
-				  <span><input type="submit" class="btn btn-success "  value="ADD"  style="margin-left:500px; width:80px;"></span>
-				</div>
-				 
-	</form>
-						
+					<form class="form-container" action="./AddEmployee" method="post"
+						id="ticket_submit">
+
+
+						<label>First Name</label> <input type="text" class="form-control"
+							id="exampleInputFName" name="fname" required> <br>
+
+						<label>Last Name</label> <input type="text" class="form-control"
+							id="exampleInputFName" name="lname" required> <br> <label>Employee
+							Id</label> <input type="number" class="form-control"
+							id="exampleInputPassword1" name="empid" required><br>
+
+						<label>NIC num</label> <input type="text" class="form-control"
+							id="exampleInputFName" name="nic" pattern="[0-9]{9}[vV]{1}"
+							required> <br> <label>Address</label> <input
+							type="text" class="form-control" id="exampleInputFName"
+							name="address" required> <br> <label>Phone
+							Number</label> <input type="phone" class="form-control"
+							id="exampleInputFName" name="phone" pattern="[0-9]{3}[0-9]{7}"
+							required> <br> <label>Email Id</label> <input
+							type="email" class="form-control" id="exampleInputFName"
+							name="email"> <br> <label>Job role</label>
+						<input type="text" class="form-control" id="exampleInputFName"
+							name="job" required> <br> <label>Basic
+							salary per month</label> <input type="number" class="form-control"
+							id="exampleInputFName" name="bsal" required> <br>
+
+						<div>
+							<br>
+							<br> <span><input type="submit"
+								class="btn btn-success " value="ADD"
+								style="margin-left: 500px; width: 80px;"></span>
+						</div>
+
+					</form>
+
 				</div>
 
 
-					
-				</div>
+
 			</div>
 		</div>
+	</div>
 
 
 

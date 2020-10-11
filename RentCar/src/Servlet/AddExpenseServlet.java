@@ -9,22 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Model.Rates;
-
-import service.IRateService;
-import service.RateServiceimpl;
-
 /**
- * Servlet implementation class UpdateRateServlet
+ * Servlet implementation class AddExpenseServlet
  */
-@WebServlet("/UpdateRateServlet")
-public class UpdateRateServlet extends HttpServlet {
+@WebServlet("/AddExpenseServlet")
+public class AddExpenseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateRateServlet() {
+    public AddExpenseServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,20 +39,50 @@ public class UpdateRateServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
-	
+		System.out.println("entered inside");
 		
-		Rates rates = new Rates();
-		String RateId = request.getParameter("RateId");
+		int count=Integer.parseInt(request.getParameter("count"));
+		System.out.println("count : "+count);
 		
-		rates.setRateId(RateId);
+		String[] description =new String[10] ;
+		int[] amount=new int[10];
 
-		rates.setVechileId(request.getParameter("VechileId"));
-		rates.setAmount(request.getParameter("Amount"));
+		System.out.println("count1 : "+count);
+		
+//		description[i]=request.getParameter("description"+i);
+//		 amount[]=Integer.parseInt(request.getParameter("amount"));
+//		
+		
+		
+		
+		for(int i=0;i<count;i++){
+			System.out.println("loop"+i);
+			
+			 description[i]=request.getParameter("description"+i);
+			 amount[i]=Integer.parseInt(request.getParameter("amount"+i));
+				
+		}
+		/////
+		
+		System.out.println("count2 : "+count);
+		for(int i=0;i<count;i++){
+				
+			
 
-		IRateService iratesService = new RateServiceimpl();
-		iratesService.updateRates(rates);
-
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Insert_Rates.jsp");
+			System.out.println("des"+description[i]);
+			System.out.println("amt"+amount[i]);
+			
+			}
+		
+		///
+		
+		
+		
+		System.out.println("count3 : "+count);
+		
+		
+		
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/input.jsp");
 		dispatcher.forward(request, response);
 		
 	}

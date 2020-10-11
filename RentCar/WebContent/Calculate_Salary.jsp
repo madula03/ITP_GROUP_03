@@ -23,11 +23,9 @@
 <link rel="stylesheet" type="text/css" href=" CSS/ADMIN_PAGE.css">
 <link rel="stylesheet" type="text/css" href=" CSS/calculated_incSTM.css">
 <style>
-
-#td1{
- padding: 10px;
+#td1 {
+	padding: 10px;
 }
-
 </style>
 
 <title>MYEvent</title>
@@ -80,16 +78,17 @@
 							<div>
 								<nav class='animated bounceInDown'>
 								<ul>
-								    <li class='sub-menu'><a href='#'>Employees
+									<li class='sub-menu'><a href='#'>Employees
 											<div class='fa fa-caret-down right'></div>
 									</a>
 										<ul>
-													<li><a href="Present_employees.jsp">Present employees</a></li>
+											<li><a href="Present_employees.jsp">Present
+													employees</a></li>
 											<li><a href="MyComplaint.jsp">Past employees</a></li>
 										</ul>
 									<li><a href="userProfile.jsp">Salary</a></li>
 									<li><a href="UserViewMyEvent.jsp">Report</a></li>
-									
+
 								</ul>
 
 
@@ -116,7 +115,7 @@
 					</div>
 
 
-		<%	
+					<%	
 		
 		
 		//String rSalary=String.format(request.getParameter("date"));
@@ -172,113 +171,133 @@
 
 
 
-			<table border="3"  style="height:50%; width:100%; margin-top:20px;">
-			<caption style="margin-left:600px;"><b>NIC : <%out.println(nic); %></b></caption>
-			
-		
-			
-			</tr>
-			</tr>
-			<tr>
-			<td id="td1"> Normal day Salary</td>
-			<td style="  padding: 10px;"><%out.println(total_normalday_sal); %></td>
-			<td></td>
-			
-			</tr>
-			
-			</tr>
-			<tr>
-			<td id="td1">OT Amount</td>
-			<td id="td1" ><%out.println(total_OT_amt); %></td>
-			<td ></td>
-			</tr>
-			
-			
-			
-		
-		<tr>
-			<td id="td1">Total Salary</td>
-			<td id="td1" ></td>
-			<td  id="td1"><%out.println(TotalSalary); %></td>
-			</tr>
-			
-			
-			
-				<tr>
-			<td   id="td1">EPF</td>
-			<td  id="td1"> <%out.println(EPF); %></td>
-			<td ></td>
-				
-				</tr>
-		
-			
-			
-			
-		
-			
-				<tr>
-			<td   id="td1">ETF</td>
-			<td   id="td1"><%out.println(ETF); %></td>
-			<td  id="td1">(<%out.println(ETF+EPF); %>)</td>
-							
-			
-			</tr>
-			
-			
-		
-			
-			
-			<tr>
-			<td   id="td1" bgcolor="#8080ff">NetSalary</td>
-			<td   ></td>
-			<td id="td1"><%out.println(NetSalary); %></td>
-							
-			
-			</tr>
-			
-			
-		
-			
-			
-			
-			
-		
-			
-			</tr>
-			
-		
-			</table>
-	
-			
+					<table border="3"
+						style="height: 50%; width: 100%; margin-top: 20px;">
+						<caption style="margin-left: 600px;">
+							<b>NIC : <%out.println(nic); %></b>
+						</caption>
 
-		
-			 <form method="post" action="AddSalary">
-			<input type="hidden"  name="NIC" value="<%out.println(nic); %>">
-			
-			<input type="hidden" name=basSal value="<%out.println(BasicSal_per_day);  %>">
-			<input type="hidden" name=attendnce value="<%out.println(attendnce);  %>">
-			<input type="hidden" name=EPF value="<%out.println(EPF);  %>">
-			<input type="hidden" name=ETF value="<%out.println(ETF);  %>">
-			<input type="hidden" name=NetSal value="<%out.println(NetSalary);  %>">
-			
-		
-			
 
-						
-			<input type="submit"  class="btn btn-success " value="submit" style="background-color: #8080ff;margin-left:600px; margin-top:100px;" onclick="return confirm('Do you really want to submit the form?');">	
-			
-			</form>		
-						
-			
-	
-			
+
+						</tr>
+						</tr>
+						<tr>
+							<td id="td1">Normal day Salary</td>
+							<td style="padding: 10px;">
+								<%out.println(total_normalday_sal); %>
+							</td>
+							<td></td>
+
+						</tr>
+
+						</tr>
+						<tr>
+							<td id="td1">OT Amount</td>
+							<td id="td1">
+								<%out.println(total_OT_amt); %>
+							</td>
+							<td></td>
+						</tr>
+
+
+
+
+						<tr>
+							<td id="td1">Total Salary</td>
+							<td id="td1"></td>
+							<td id="td1">
+								<%out.println(TotalSalary); %>
+							</td>
+						</tr>
+
+
+
+						<tr>
+							<td id="td1">EPF</td>
+							<td id="td1">
+								<%out.println(EPF); %>
+							</td>
+							<td></td>
+
+						</tr>
+
+
+
+
+
+
+						<tr>
+							<td id="td1">ETF</td>
+							<td id="td1">
+								<%out.println(ETF); %>
+							</td>
+							<td id="td1">(<%out.println(ETF+EPF); %>)
+							</td>
+
+
+						</tr>
+
+
+
+
+
+						<tr>
+							<td id="td1" bgcolor="#8080ff">NetSalary</td>
+							<td></td>
+							<td id="td1">
+								<%out.println(NetSalary); %>
+							</td>
+
+
+						</tr>
+
+
+
+
+
+
+
+
+
+						</tr>
+
+
+					</table>
+
+
+
+
+					<form method="post" action="AddSalary">
+						<input type="hidden" name="NIC" value="<%out.println(nic); %>">
+
+						<input type="hidden" name=basSal
+							value="<%out.println(BasicSal_per_day);  %>"> <input
+							type="hidden" name=attendnce
+							value="<%out.println(attendnce);  %>"> <input
+							type="hidden" name=EPF value="<%out.println(EPF);  %>"> <input
+							type="hidden" name=ETF value="<%out.println(ETF);  %>"> <input
+							type="hidden" name=NetSal value="<%out.println(NetSalary);  %>">
+
+
+
+
+
+						<input type="submit" class="btn btn-success " value="submit"
+							style="background-color: #8080ff; margin-left: 600px; margin-top: 100px;"
+							onclick="return confirm('Do you really want to submit the form?');">
+
+					</form>
+
+
+
+
 				</div>
 
 
-					
-				</div>
+
 			</div>
 		</div>
+	</div>
 
 
 

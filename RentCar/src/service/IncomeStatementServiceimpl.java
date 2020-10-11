@@ -123,5 +123,29 @@ public class IncomeStatementServiceimpl implements IIncomeStatementService {
 		return arraylist;
 
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
 
 }// final bracket

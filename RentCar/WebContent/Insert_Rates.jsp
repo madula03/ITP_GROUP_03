@@ -57,9 +57,9 @@
 								<div>
 
 
-									<a href="Adminlogin.jsp"><input type="submit" value="logout"
-										class="btn btn-primary btn-sm"> </a>
-								
+									<a href="Adminlogin.jsp"><input type="submit"
+										value="logout" class="btn btn-primary btn-sm"> </a>
+
 
 								</div>
 							</form>
@@ -87,10 +87,8 @@
 									<li class='sub-menu'><a href='Insert_Rates.jsp'>Rates
 											<div class='fa fa-caret-down right'></div>
 											<li class='sub-menu'><a href='#'>Report
-											<div class='fa fa-caret-down right'></div>
-									</a>
-										
-											
+													<div class='fa fa-caret-down right'></div>
+											</a>
 									</a>
 								</ul>
 
@@ -124,7 +122,7 @@
 						<thead>
 							<tr>
 								<th>RATE ID</th>
-								<th>CATEGORY </th>
+								<th>CATEGORY</th>
 								<th>AMOUNT</th>
 								<th></th>
 								<th></th>

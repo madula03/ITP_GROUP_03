@@ -297,7 +297,10 @@
 					</table>
 
 
-	<a href="View_IncomeStatement.jsp"><button style="margin-left:600px;  margin-top:100px;  width:100px;background-color: #8080ff;"><span style="color: black;">OK</span></button></a>
+					<a href="View_IncomeStatement.jsp"><button
+							style="margin-left: 600px; margin-top: 100px; width: 100px; background-color: #8080ff;">
+							<span style="color: black;">OK</span>
+						</button></a>
 
 
 

@@ -217,10 +217,10 @@ input[type=submit]:hover {
 						placeholder="Address..." value="<%=sm.getAddress()%>" required>
 				</div>
 			</div>
-			
-			
-			
-			
+
+
+
+
 			<div class="row">
 				<div class="col-25">
 					<label for="rentperiod">Rent period</label>
@@ -230,7 +230,7 @@ input[type=submit]:hover {
 						placeholder="xx years" value="<%=sm.getRentperiod() %>" required>
 				</div>
 			</div>
-			
+
 
 
 			<div class="row">

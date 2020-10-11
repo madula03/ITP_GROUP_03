@@ -1,5 +1,5 @@
 
- <%@ page import="com.model.NewEmployee" %>
+<%@ page import="com.model.NewEmployee"%>
 
 
 
@@ -39,7 +39,7 @@
 <body>
 
 
-	<div class="container" >
+	<div class="container">
 		<h1 class="h3 mb-3">Profile</h1>
 		<div class="row">
 			<div class="col-md-4 col-xl-3">
@@ -63,7 +63,7 @@
 
 
 									<input type="submit" value="logout"
-										class="btn btn-primary btn-sm"> 
+										class="btn btn-primary btn-sm">
 
 								</div>
 							</form>
@@ -78,16 +78,17 @@
 							<div>
 								<nav class='animated bounceInDown'>
 								<ul>
-								    <li class='sub-menu'><a href='#'>Employees
+									<li class='sub-menu'><a href='#'>Employees
 											<div class='fa fa-caret-down right'></div>
 									</a>
 										<ul>
-											<li><a href="Present_employees.jsp">Present employees</a></li>
+											<li><a href="Present_employees.jsp">Present
+													employees</a></li>
 											<li><a href="MyComplaint.jsp">Past employees</a></li>
 										</ul>
 									<li><a href="userProfile.jsp">Salary</a></li>
 									<li><a href="UserViewMyEvent.jsp">Report</a></li>
-									
+
 								</ul>
 
 
@@ -114,41 +115,44 @@
 						<div class="card-body h-100"></div>
 					</div>
 
-					
-					
-				
-					
-				 <form class="form-container" action="Calculate_Salary.jsp"  method="post"  id="ticket_submit">
-	
-					
-				
-				
-				<label>NIC num</label>
-				<input type="text" class="form-control" id="exampleInputFName"   name="nic"   required     >
-				<br>
-				
-				<label>Basic Salary</label>
-				<input type="number" class="form-control" id="exampleInputFName"   name="bsal"   required     >
-				<br>
-				
-				<label>Attendance</label>
-				<input type="number" class="form-control" id="exampleInputFName"   name="attendnce"    required     >
-				<br>
-				
-				<div>
-				<br><br>
-				 <span><input type="submit" class="btn btn-success "  value="CALCULATE"  style="margin-left:400px;"></span>
-				</div>
-				 
-	</form>
-						
+
+
+
+
+					<form class="form-container" action="Calculate_Salary.jsp"
+						method="post" id="ticket_submit">
+
+
+						<%
+						String nic=String.format(request.getParameter("id11"));
+						 %>
+
+
+						<label>NIC num</label> <input type="text" class="form-control"
+							id="exampleInputFName" name="nic"  value="<%=nic%>"  required> <br>
+
+						<label>Basic Salary</label> <input type="number"
+							class="form-control" id="exampleInputFName" name="bsal" required>
+						<br> <label>Attendance</label> <input type="number"
+							class="form-control" id="exampleInputFName" name="attendnce"
+							required> <br>
+
+						<div>
+							<br>
+							<br> <span><input type="submit"
+								class="btn btn-success " value="CALCULATE"
+								style="margin-left: 400px;"></span>
+						</div>
+
+					</form>
+
 				</div>
 
 
-					
-				</div>
+
 			</div>
 		</div>
+	</div>
 
 
 

@@ -1,7 +1,18 @@
-<%@page import="service.InquiryImp"%>
-<%@page import="service.I_Inquiry"%>
-<%@page import="Model.Inquiry"%>
+<%@page import="service.MaintenanceImp"%>
+<%@page import="service.IMaintenace"%>
+<%@page import="Model.RepairAndMaintenance"%>
 <%@page import="java.util.ArrayList"%>
+
+
+
+
+<%@page import="service.RateServiceimpl"%>
+<%@page import="service.IRateService"%>
+<%@page import="Model.IncomeStatement"%>
+<%@page import="java.util.ArrayList"%>
+
+<%@page import="Servlet.GetMaintanceDetails"%>
+
 
 
 <!DOCTYPE html>
@@ -9,13 +20,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-</head>
-
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<head>
+<link
+	href="https://unpkg.com/browse/bootstrap@4.1.0/dist/css/bootstrap.min.css"
+	rel="stylesheet" />
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -38,6 +47,7 @@
 <style>
 body {
 	margin-top: 20px;
+	background-color: #ffffff;
 }
 
 .card {
@@ -53,7 +63,7 @@ body {
 	flex-direction: column;
 	min-width: 0;
 	word-wrap: break-word;
-	background-color: #fff;
+	background-color: #e5e5e5;
 	background-clip: border-box;
 	border: 1px solid #e5e9f2;
 	border-radius: .2rem;
@@ -70,8 +80,8 @@ body {
 .card-header {
 	padding: .75rem 1.25rem;
 	margin-bottom: 0;
-	color: inherit;
-	background-color: #fff;
+	color: white;
+	background-color: #808080;
 	border-bottom: 1px solid #e5e9f2;
 }
 
@@ -106,7 +116,7 @@ nav ul li {
 
 nav ul li a {
 	display: block;
-	background: #ebebeb;
+	background: #ffffff;
 	padding: 10px 15px;
 	color: #333;
 	text-decoration: none;
@@ -118,7 +128,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-	background: #f8f8f8;
+	background: #808080;
 	color: #515151;
 }
 
@@ -134,13 +144,13 @@ nav ul ul {
 }
 
 nav ul li ul li a {
-	background: #f8f8f8;
+	background: #ffffff;
 	border-left: 4px solid transparent;
 	padding: 10px 20px;
 }
 
 nav ul li ul li a:hover {
-	background: #ebebeb;
+	background: #ffffff;
 	border-left: 4px solid #3498db;
 }
 
@@ -160,8 +170,62 @@ th {
 	background-color: #133f75;
 	color: white;
 }
+
+button {
+	background-color: #133f75;
+	color: white;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td {
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2
+}
+
+th {
+	background-color: #133f75;
+	color: white;
+}
 </style>
+</head>
 <body>
+
+	<%
+	
+
+	
+	String date = (String) request.getParameter("date");
+	
+	GetMaintanceDetails getmaintancedetails = new GetMaintanceDetails();
+	RepairAndMaintenance repairandmaintenance = getmaintancedetails.get_values_of_Maintance(date);
+					
+		
+									if (repairandmaintenance == null) {
+										out.println("<script type=\"text/javascript\">");
+										out.println("alert('This date dosent exisit');");
+										out.println("location='ViewMaintenance.jsp';");
+										out.println("</script>");
+									}
+									%>
+
+									
+									
+							
+
+
+
+	<%
+		if (repairandmaintenance != null) {
+	%>
+
 	<div class="container">
 		<h1 class="h3 mb-3">Profile</h1>
 		<div class="row">
@@ -171,7 +235,7 @@ th {
 
 
 
-						<h5 class="card-title mb-0 text-center">Manager</h5>
+						<h5 class="card-title mb-0 text-center">Maintenance Manager</h5>
 					</div>
 					<div class="card-body text-center">
 						<br> <img src="images/avatar7.png" alt="Marie Salter"
@@ -200,12 +264,21 @@ th {
 							<div>
 								<nav class='animated bounceInDown'>
 									<ul>
-										<li class='sub-menu'><a href='#'>Inquiry Details
+										<li class='sub-menu'><a href='#'>WorkOrders
 												<div class='fa fa-caret-down right'></div>
 										</a>
 											<ul>
-												<li><a href="ViewInquiry.jsp">Inquiries</a></li>
+												<li><a href="ViewMaintenance.jsp">View Orders</a></li>
+												<li><a href="Add_Maintenance_Details.jsp">Add
+														Orders</a></li>
+												<li><a href="Update_Maintenance_Details.jsp">Update/Delete
+														Orders</a></li>
 											</ul>
+										<li><a href="UserViewMyEvent.jsp">Calendar</a></li>
+										<li><a href="UserViewMyEvent.jsp">Reports</a></li>
+										<li><a href="https://mail.google.com/">Mail</a></li>
+										<li class='sub-menu'><a href='#'>Statistics</a></li>
+
 									</ul>
 
 
@@ -226,77 +299,81 @@ th {
 				</div>
 			</div>
 			<div class="col-md-8 col-xl-9">
-				<div class="card" style="height: 1000px;">
+				<div class="card" style="height: 643px;">
 					<div class="card-header">
-						<h5 class="card-title mb-0">Inquiry Details</h5>
+						<h5 class="card-title mb-0">Repair And Maintenance Details</h5>
 						<div class="card-body h-100"></div>
+						
+						
+						
 					</div>
-
-
-
-
-
-					<table border="2">
-
-						<thead>
-							<tr>
-								<th>InquiryID</th>
-								<th>Name</th>
-								<th>Booking</th>
-								<th>Email</th>
-								<th>Problem</th>
-								<th>Comment</th>
-							</tr>
-
-
-
-
-
-
-
-
-
-
-							<%
- 		I_Inquiry i_inquiry = new InquiryImp();
-		ArrayList<Inquiry> arrayList = i_inquiry.get_Inquiry_details();
-		for(Inquiry inquiry : arrayList){
-	%>
-
-						</thead>
-						<tbody>
-							<tr>
-								<td><%=inquiry.getInquiryID() %></td>
-								<td><%=inquiry.getName() %></td>
-								<td><%=inquiry.getBooking() %></td>
-								<td><%=inquiry.getEmail() %></td>
-								<td><%=inquiry.getProblem() %></td>
-								<td><%=inquiry.getComment() %></td>
-
-
-
-
-							</tr>
-						</tbody>
-
-						</form>
-						</td>
-
-
-
-						<%	
-			   }
-            %>
-
-					</table>
-
+					
+					
+			
 					<script>
-                $('.sub-menu ul').hide();
-$(".sub-menu a").click(function () {
-	$(this).parent(".sub-menu").children("ul").slideToggle("100");
-	$(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
-});
-</script>
+						$('.sub-menu ul').hide();
+						$(".sub-menu a").click(
+								function() {
+									$(this).parent(".sub-menu").children("ul")
+											.slideToggle("100");
+									$(this).find(".right").toggleClass(
+											"fa-caret-up fa-caret-down");
+								});
+					</script>
+
+
+
+					<div style="height: 640px; overflow-x: auto;">
+
+						<table>
+
+							<thead>
+								<tr>
+									<th>RepairID</th>
+									<th>VehicleID</th>
+									<th>Start_Date</th>
+									<th>End_Date</th>
+									<th>Description</th>
+									<th>Maintenance_Cost</th>
+									<th></th>
+									<th></th>
+								</tr>
+
+
+
+
+
+
+
+
+
+
+							
+
+							</thead>
+							<tbody>
+								<tr>
+									<td><%=repairandmaintenance.getRepairID()%></td>
+
+									<td><%=repairandmaintenance.getVehicleID()%></td>
+									<td><%=repairandmaintenance.getStart_Date()%></td>
+									<td><%=repairandmaintenance.getEnd_Date()%></td>
+									<td><%=repairandmaintenance.getDescription()%></td>
+									<td><%=repairandmaintenance.getMaintenance_Cost()%></td>
+
+
+								</tr>
+							</tbody>
+
+							
+
+						</table>
+						
+						<%
+								}
+							%>
+
+					</div>
 
 
 				</div>

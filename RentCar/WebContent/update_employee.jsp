@@ -1,4 +1,5 @@
-    <%@ page import="com.model.NewEmployee" %>
+
+<%@ page import="com.model.NewEmployee"%>
 
 
 
@@ -38,7 +39,7 @@
 <body>
 
 
-	<div class="container" >
+	<div class="container">
 		<h1 class="h3 mb-3">Profile</h1>
 		<div class="row">
 			<div class="col-md-4 col-xl-3">
@@ -80,16 +81,17 @@
 							<div>
 								<nav class='animated bounceInDown'>
 								<ul>
-								    <li class='sub-menu'><a href='#'>Employees
+									<li class='sub-menu'><a href='#'>Employees
 											<div class='fa fa-caret-down right'></div>
 									</a>
 										<ul>
-											<li><a href="Present_employees.jsp">Present employees</a></li>
+											<li><a href="Present_employees.jsp">Present
+													employees</a></li>
 											<li><a href="MyComplaint.jsp">Past employees</a></li>
 										</ul>
 									<li><a href="userProfile.jsp">Report</a></li>
 									<li><a href="UserViewMyEvent.jsp">Email</a></li>
-									
+
 								</ul>
 
 
@@ -115,60 +117,54 @@
 						<h5 class="card-title mb-0">Add employee details</h5>
 						<div class="card-body h-100"></div>
 					</div>
-				<%NewEmployee emp=(NewEmployee)request.getAttribute("emp"); %>
-						
-					    <form class="form-container" action="./UpdateEmployee"  method="post"  id="ticket_submit">
-	
-				
-				<label>First Name</label>
-				<input type="text" class="form-control" id="exampleInputFName"   name="fname"  value="<%=emp.getFirstName()%>"  required     >
-				<br>
-				
-				<label>Last Name</label>
-				<input type="text" class="form-control" id="exampleInputFName"   name="lname" value="<%=emp.getLastName()%>"  required>
-				<br>
-				
-				<label>Employee Id</label>
-				<input type="number" class="form-control" id="exampleInputPassword1"   name="empid" value="<%=emp.getEmpID()%>" required><br>
-				
-				<label>NIC num</label>
-				<input type="text" class="form-control" id="exampleInputFName"   name="nic"  value="<%=emp.getNIC()%>"  required     >
-				<br>
-				
-				<label>Address</label>
-				<input type="text" class="form-control" id="exampleInputFName"   name="address"    value="<%=emp.getAddress()%>"  required     >
-				<br>
-				
-				<label>Phone Number</label>
-				<input type="phone" class="form-control" id="exampleInputFName"   name="phone"  value="<%=emp.getPhoneNum()%>"  required     >
-				<br>
-				
-				<label>Email Id</label>
-				<input type="email" class="form-control" id="exampleInputFName"   name="email"   value="<%=emp.getEmail()%>"        >
-				<br>
-				
-				<label>Job role</label>
-				<input type="text" class="form-control" id="exampleInputFName"   name="job"  value="<%=emp.getJobrole()%>"    required     >
-				<br>
-				
-				<label>Basic salary per month</label>
-				<input type="number" class="form-control" id="exampleInputFName"   name="bsal"   value="<%=emp.getBasicSal()%>" required     >
-				<br>
-				
-				<div>
-				<br><br>
-				<input type="submit" class="btn btn-success "  value="update"  style="margin-left:10px; width:100px; ">
-				</div>
-				 
-	</form>
-						
+					<%NewEmployee emp=(NewEmployee)request.getAttribute("emp"); %>
+
+					<form class="form-container" action="./UpdateEmployee"
+						method="post" id="ticket_submit">
+
+
+						<label>First Name</label> <input type="text" class="form-control"
+							id="exampleInputFName" name="fname"
+							value="<%=emp.getFirstName()%>" required> <br>
+
+						<label>Last Name</label> <input type="text" class="form-control"
+							id="exampleInputFName" name="lname"
+							value="<%=emp.getLastName()%>" required> <br> <label>Employee
+							Id</label> <input type="number" class="form-control"
+							id="exampleInputPassword1" name="empid"
+							value="<%=emp.getEmpID()%>" required><br> <label>NIC
+							num</label> <input type="text" class="form-control"
+							id="exampleInputFName" name="nic" value="<%=emp.getNIC()%>"
+							required> <br> <label>Address</label> <input
+							type="text" class="form-control" id="exampleInputFName"
+							name="address" value="<%=emp.getAddress()%>" required>
+						<br> <label>Phone Number</label> <input type="phone"
+							class="form-control" id="exampleInputFName" name="phone"
+							value="<%=emp.getPhoneNum()%>" required> <br> <label>Email
+							Id</label> <input type="email" class="form-control"
+							id="exampleInputFName" name="email" value="<%=emp.getEmail()%>">
+						<br> <label>Job role</label> <input type="text"
+							class="form-control" id="exampleInputFName" name="job"
+							value="<%=emp.getJobrole()%>" required> <br> <label>Basic
+							salary per month</label> <input type="number" class="form-control"
+							id="exampleInputFName" name="bsal" value="<%=emp.getBasicSal()%>"
+							required> <br>
+
+						<div>
+							<br>
+							<br> <input type="submit" class="btn btn-success "
+								value="update" style="margin-left: 10px; width: 100px;">
+						</div>
+
+					</form>
+
 				</div>
 
 
-					
-				</div>
+
 			</div>
 		</div>
+	</div>
 
 
 

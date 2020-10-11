@@ -51,9 +51,8 @@
 								<div>
 
 
-									<a class="btn btn-primary btn-sm"
-										href="Adminlogin.jsp">Logout <span
-										class="
+									<a class="btn btn-primary btn-sm" href="Adminlogin.jsp">Logout
+										<span class="
 glyphicon glyphicon-log-out"></span>
 									</a>
 
@@ -105,8 +104,7 @@ glyphicon glyphicon-log-out"></span>
 					</div>
 
 
-					<br>
-					<br>
+					<br> <br>
 
 
 
@@ -143,9 +141,12 @@ glyphicon glyphicon-log-out"></span>
 								<label class="col-lg-2 col-lg-offset-2 control-label"
 									for="product_name">Car ID</label>
 								<div class="col-md-6">
-									<input id="carID" name="cardid" placeholder="Car ID" pattern="[A-Z]{2}[0-9]{3}"
-										title="Should start with 2 characters and 3 digits" maxlength="5" class="form-control input-md" required="" type="text">
-								
+									<input id="carID" name="cardid" placeholder="Car ID"
+										pattern="[A-Z]{2}[0-9]{3}"
+										title="Should start with 2 characters and 3 digits"
+										maxlength="5" class="form-control input-md" required=""
+										type="text">
+
 								</div>
 							</div>
 
@@ -193,7 +194,7 @@ glyphicon glyphicon-log-out"></span>
 										name="description" required=""></textarea>
 								</div>
 							</div>
-                            <div class="form-group">
+							<div class="form-group">
 								<label class="col-lg-2 col-lg-offset-2 control-label"
 									for="product_name_fr">Image URl</label>
 								<div class="col-md-6">
@@ -217,8 +218,7 @@ glyphicon glyphicon-log-out"></span>
 
 
 
-							<br>
-							<br>
+							<br> <br>
 
 							<div class="form-group">
 

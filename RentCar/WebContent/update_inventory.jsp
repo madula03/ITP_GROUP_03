@@ -1,4 +1,4 @@
-<%@page import="service.InventoryServiceimpl" %>
+<%@page import="service.InventoryServiceimpl"%>
 <%@page import="service.IInventoryService"%>
 <%@page import="Model.Inventory"%>
 <%@page import="java.util.ArrayList"%>
@@ -38,10 +38,10 @@
 
 <body>
 
-<div class="container" style="width:100%;">
+	<div class="container" style="width: 100%;">
 		<h1 class="h3 mb-3">Profile</h1>
 		<div class="row">
-			<div class="col-md-4 col-xl-3"style="width:25%;">
+			<div class="col-md-4 col-xl-3" style="width: 25%;">
 				<div class="card mb-3">
 					<div class="card-header">
 
@@ -59,9 +59,9 @@
 								<div>
 
 
-								 <a
-										class="btn btn-primary btn-sm" href="UserViewRegistration.jsp">Logout
-										<span class="
+									<a class="btn btn-primary btn-sm"
+										href="UserViewRegistration.jsp">Logout <span
+										class="
 glyphicon glyphicon-log-out"></span>
 									</a>
 
@@ -82,10 +82,10 @@ glyphicon glyphicon-log-out"></span>
 									<li><a href="AddInventory.jsp">Add Inventory</a></li>
 									<li><a href="UserViewMyEvent.jsp">Request For Repair</a></li>
 									<li><a href="UserViewMyEvent.jsp">Report</a></li>
-									
+
 									</a>
-										
-							   </ul>
+
+								</ul>
 
 
 
@@ -103,40 +103,44 @@ glyphicon glyphicon-log-out"></span>
 
 				</div>
 			</div>
-			<div class="col-md-8 col-xl-9" style="width:75%;">
+			<div class="col-md-8 col-xl-9" style="width: 75%;">
 				<div class="card" style="height: 1000px;">
 					<div class="card-header">
-						<h5 class="card-title mb-0"> Update Inventory</h5>
+						<h5 class="card-title mb-0">Update Inventory</h5>
 						<div class="card-body h-100"></div>
 					</div>
-					
-					
-<br><br>
 
 
- <%
+					<br>
+					<br>
+
+
+					<%
 	String carID=(String)request.getParameter("CarID");
 	GetInventoryServlet getRatesservlet= new GetInventoryServlet();
 	Inventory inventory = getRatesservlet. get_values_of_Inventory(carID);
 	
 	System.out.println(inventory.getUrl());
 											%>
-							
 
 
 
-<div class="form-group">
-<form action="./UpdateInventoryServlet" method="post">
-  <label class="col-lg-2 col-lg-offset-2 control-label" for="filebutton">Car image</label>
-  <div class="col-md-5">
- 
 
-<p><img id="output" width="200" height="200" src="<%=inventory.getUrl()%>"/> 
-
-<!--  <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"     ></p> -->
+					<div class="form-group">
+						<form action="./UpdateInventoryServlet" method="post">
+							<label class="col-lg-2 col-lg-offset-2 control-label"
+								for="filebutton">Car image</label>
+							<div class="col-md-5">
 
 
-<!-- <script>
+								<p>
+									<img id="output" width="200" height="200"
+										src="<%=inventory.getUrl()%>" />
+
+									<!--  <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"     ></p> -->
+
+
+									<!-- <script>
 var loadFile = function(event) {
 	var image = document.getElementById('output');
 	image.src = URL.createObjectURL(event.target.files[0]);
@@ -145,76 +149,91 @@ var loadFile = function(event) {
    
 
   <label for="file" style="cursor: pointer;">Change Image</label>-->
-</div>
-<br> 
+							</div>
+							<br>
 
-<div class="form-group">
-  <label class="col-lg-2 col-lg-offset-2 control-label" for="product_name">Car ID</label>  
-  <div class="col-md-6">
- 
-<input id="carID"  placeholder="Car ID"
-class="form-control input-md" required="" type="text" value="<%=inventory.getCarID()%>" disabled>
+							<div class="form-group">
+								<label class="col-lg-2 col-lg-offset-2 control-label"
+									for="product_name">Car ID</label>
+								<div class="col-md-6">
 
-<input id="carID" name="cardid" placeholder="Car ID"
-class="form-control input-md" required="" value="<%=inventory.getCarID()%>"  type="hidden">
-   
-   
-  </div>
-
-</div>
-
-<div class="form-group">
-  <label class="col-lg-2 col-lg-offset-2 control-label" for="product_name_fr">Model</label>  
-  <div class="col-md-6">
-  <input id="model" name="model" placeholder="Model" class="form-control input-md" required="" type="text"   value="<%=inventory.getModel()%>" >
-    
-  </div>
-</div>
+									<input id="carID" placeholder="Car ID"
+										class="form-control input-md" required="" type="text"
+										value="<%=inventory.getCarID()%>" disabled> <input
+										id="carID" name="cardid" placeholder="Car ID"
+										class="form-control input-md" required=""
+										value="<%=inventory.getCarID()%>" type="hidden">
 
 
+								</div>
 
+							</div>
 
+							<div class="form-group">
+								<label class="col-lg-2 col-lg-offset-2 control-label"
+									for="product_name_fr">Model</label>
+								<div class="col-md-6">
+									<input id="model" name="model" placeholder="Model"
+										class="form-control input-md" required="" type="text"
+										value="<%=inventory.getModel()%>">
 
-
-<div class="form-group">
-  <label class="col-lg-2 col-lg-offset-2 control-label" for="product_description">Description</label>
-  <div class="col-md-6">                     
-    <input type="text" class="form-control" id="description" name="description"  value="<%=inventory.getDescription()%>" >
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-lg-2 col-lg-offset-2 control-label" for="product_description">Image Url</label>
-  <div class="col-md-6">                     
-    <input type="text" class="form-control" id="url" name="url"  value="<%=inventory.getUrl()%>" >
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-lg-2 col-lg-offset-2" control-label" for="product_weight">No Of Passengers</label>  
-  <div class="col-md-6">
-  <input id="num_of_pass" name="noOfpass"  class="form-control input-md" required="" type="number"    value="<%=inventory.getNoOfPassengers()%>" >
-    
-  </div>
-</div>
+								</div>
+							</div>
 
 
 
 
 
-<br><br>
 
-<div class="form-group">
-  
-  <div class="col-lg-5 col-lg-offset-5">
-    <button style="margin-top:20px;" id="updatebutton" name="updatebutton" class="btn btn-primary" type="submit">Save Changes</button>
-  </div>
-  </form>
- </div>
- 
- 
- 
-			</div>
+							<div class="form-group">
+								<label class="col-lg-2 col-lg-offset-2 control-label"
+									for="product_description">Description</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" id="description"
+										name="description" value="<%=inventory.getDescription()%>">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-lg-2 col-lg-offset-2 control-label"
+									for="product_description">Image Url</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" id="url" name="url"
+										value="<%=inventory.getUrl()%>">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-lg-2 col-lg-offset-2"
+									control-label" for="product_weight">No Of Passengers</label>
+								<div class="col-md-6">
+									<input id="num_of_pass" name="noOfpass"
+										class="form-control input-md" required="" type="number"
+										value="<%=inventory.getNoOfPassengers()%>">
+
+								</div>
+							</div>
+
+
+
+
+
+							<br>
+							<br>
+
+							<div class="form-group">
+
+								<div class="col-lg-5 col-lg-offset-5">
+									<button style="margin-top: 20px;" id="updatebutton"
+										name="updatebutton" class="btn btn-primary" type="submit">Save
+										Changes</button>
+								</div>
+						</form>
+					</div>
+
+
+
+				</div>
 
 
 

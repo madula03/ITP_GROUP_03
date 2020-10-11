@@ -1,5 +1,5 @@
-<%@page import="service.CustomerImp" %>
-<%@page import="service.ICustomer" %>
+<%@page import="service.CustomerImp"%>
+<%@page import="service.ICustomer"%>
 <%@page import="Model.Customer"%>
 <%@page import="java.util.ArrayList"%>
 
@@ -36,21 +36,15 @@
 
 <title>Maintenance</title>
 <style>
-
 body {
 	margin-top: 20px;
 	background-color: #ffffff;
-	
 }
 
 .card {
 	margin-bottom: 1.5rem;
 	box-shadow: 0 1px 15px 1px rgba(52, 40, 104, .08);
 }
-
-
-
-
 
 .card {
 	position: relative;
@@ -74,8 +68,6 @@ body {
 	border-bottom-width: 1px;
 }
 
-
-
 .card-header {
 	padding: .75rem 1.25rem;
 	margin-bottom: 0;
@@ -86,8 +78,8 @@ body {
 
 .UPPER_card-header {
 	border-bottom-width: 5px;
-	
 }
+
 .UPPER_card-header {
 	padding: .75rem 1.25rem;
 	margin-bottom: 0;
@@ -95,8 +87,6 @@ body {
 	background-color: #red;
 	border-bottom: 1px solid #e5e9f2;
 }
-
-
 
 nav {
 	position: relative;
@@ -117,7 +107,7 @@ nav ul li {
 
 nav ul li a {
 	display: block;
-		background: #ffffff;
+	background: #ffffff;
 	padding: 10px 15px;
 	color: #333;
 	text-decoration: none;
@@ -129,7 +119,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-background: #808080;
+	background: #808080;
 	color: #515151;
 }
 
@@ -151,7 +141,7 @@ nav ul li ul li a {
 }
 
 nav ul li ul li a:hover {
-		background: #ffffff;
+	background: #ffffff;
 	border-left: 4px solid #3498db;
 }
 
@@ -168,42 +158,36 @@ center {
 }
 
 th {
-  background-color: #133f75;
-  color: white;
+	background-color: #133f75;
+	color: white;
 }
 
 button {
-  background-color: #133f75;
-  color: white;
+	background-color: #133f75;
+	color: white;
 }
 
-
-
-
-
-
 table {
-  border-collapse: collapse;
-  width: 100%;
+	border-collapse: collapse;
+	width: 100%;
 }
 
 th, td {
-  text-align: left;
-  padding: 8px;
+	text-align: left;
+	padding: 8px;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(even) {
+	background-color: #f2f2f2
+}
 
 th {
-  background-color: #133f75;
-  color: white;
+	background-color: #133f75;
+	color: white;
 }
-
-
 </style>
-
 <body>
-<div class="container">
+	<div class="container">
 		<h1 class="h3 mb-3">Profile</h1>
 		<div class="row">
 			<div class="col-md-4 col-xl-3">
@@ -241,22 +225,24 @@ th {
 
 							<div>
 								<nav class='animated bounceInDown'>
-								<ul>
-					
-									<li class='sub-menu'><a href='#'>Customer Details
-											<div class='fa fa-caret-down right'></div>
-									</a>
-										<ul>
-											<li><a href="AdminViewCustomer.jsp">Current Customer Details</a></li>
-											<li><a href="AdminUpdateCustomer.jsp">Update/Delete Customers</a></li>
-											<li><a href="AddPastCustomer.jsp">Past Customer Details</a></li>
-										</ul>
-									
-									<li><a href="#">Reports</a></li>
-									<li><a href="#">Mail</a></li>
-									
-									
-								</ul>
+									<ul>
+
+										<li class='sub-menu'><a href='#'>Customer Details
+												<div class='fa fa-caret-down right'></div>
+										</a>
+											<ul>
+												<li><a href="AdminViewCustomer.jsp">Current
+														Customer Details</a></li>
+												<li><a href="AdminUpdateCustomer.jsp">Update/Delete
+														Customers</a></li>
+												<li><a href="AddPastCustomer.jsp">Past Customer
+														Details</a></li>
+											</ul>
+										<li><a href="#">Reports</a></li>
+										<li><a href="#">Mail</a></li>
+
+
+									</ul>
 
 
 
@@ -281,7 +267,7 @@ th {
 						<h5 class="card-title mb-0">Current Customer Details</h5>
 						<div class="card-body h-100"></div>
 					</div>
-			<script>
+					<script>
                 $('.sub-menu ul').hide();
 $(".sub-menu a").click(function () {
 	$(this).parent(".sub-menu").children("ul").slideToggle("100");
@@ -292,68 +278,68 @@ $(".sub-menu a").click(function () {
 
 
 
- <table border="2" >
-   
-         		<thead>
-         		<tr>
-         		<th>FirstName</th>
-         		<th>LastName</th>
-         		<th>NIC</th>
-         		<th>LicenseNum</th>
-         		<th>LicenseEndDate</th>
-         		<th>Address</th>
-         		<th>Phone</th>
-         		<th>Email</th>
-         		<th></th>
-         		<th></th>
-         	</tr>	
-         	
-         	     		
-         	      		
-         	   		
-         	         		
-         		</thead>
-         		
-         					
+					<table border="2">
+
+						<thead>
+							<tr>
+								<th>FirstName</th>
+								<th>LastName</th>
+								<th>NIC</th>
+								<th>LicenseNum</th>
+								<th>LicenseEndDate</th>
+								<th>Address</th>
+								<th>Phone</th>
+								<th>Email</th>
+								<th></th>
+								<th></th>
+							</tr>
 
 
- <%
+
+
+
+						</thead>
+
+
+
+
+						<%
  		ICustomer icustomer = new CustomerImp();
 		ArrayList<Customer> arrayList = icustomer.get_Customer_details();
 				
 			
 			for(Customer customer : arrayList){
 			%>
-			
-</thead>
-  <tr>
-				<td> <%=customer.getFirstName() %> </td>
-				<td> <%=customer.getLastName() %> </td>
-				<td> <%=customer.getNIC() %> </td>
-				<td> <%=customer.getLicenseNum() %> </td>
-				<td> <%=customer.getLicenseEndDate() %> </td>
-				<td> <%=customer.getAddress() %> </td>
-				<td> <%=customer.getPhone() %> </td>
-				<td> <%=customer.getEmail() %> </td>
-				
-						
 
-</tr>
-</form></td>
-				
-				
+						</thead>
+						<tr>
+							<td><%=customer.getFirstName() %></td>
+							<td><%=customer.getLastName() %></td>
+							<td><%=customer.getNIC() %></td>
+							<td><%=customer.getLicenseNum() %></td>
+							<td><%=customer.getLicenseEndDate() %></td>
+							<td><%=customer.getAddress() %></td>
+							<td><%=customer.getPhone() %></td>
+							<td><%=customer.getEmail() %></td>
 
-<%	
+
+
+						</tr>
+						</form>
+						</td>
+
+
+
+						<%	
 			   }
             %>
 
-</table>
+					</table>
 
 
 
 
-</div>
-</div>
-
+				</div>
+			</div>
 </body>
 </html>

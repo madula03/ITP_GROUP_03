@@ -82,8 +82,9 @@
 											<div class='fa fa-caret-down right'></div>
 									</a>
 										<ul>
-											<li><a href="Add_Employee.jsp">Add new	employees</a></li>
-											<li><a href="Present_employees.jsp">Present	employees</a></li>
+											<li><a href="Add_Employee.jsp">Add new employees</a></li>
+											<li><a href="Present_employees.jsp">Present
+													employees</a></li>
 											<li><a href="past_employee.jsp">Past employees</a></li>
 										</ul>
 									<li><a href="Add_Salary.jsp">Salary</a></li>
@@ -123,7 +124,7 @@
 						<th>Email</th>
 						<th>Job role</th>
 						<th>Basic_salary</th>
-						
+
 
 
 
@@ -148,11 +149,11 @@
 							<td><%=employee.getJobrole()%></td>
 							<td><%=employee.getBasicSal()%></td>
 
-						
-							
 
 
-							
+
+
+
 						</tr>
 						<%
 								}
@@ -160,10 +161,7 @@
 						<div></div>
 					</table>
 
-				<form>
-				
-				
-				</form>
+					<form></form>
 
 
 

@@ -17,22 +17,33 @@
 		<div class="row">
 			<div class="col-md-4">
 
-				<form 
-					method="post">
-					
+				<form method="post">
+
 					<div class="form-group">
-					Enter Location : <input type="text" name="location"
-						value="${reservation.location}" class="form-control" > </div> <div class="form-group"> Enter Time : <input
-						type="time" name="time1" value="${reservation.time1}" class="form-control"> </div> 
-					<div class="form-group">Enter Pickup Date : <input type="date" name="pickupdate"
-						value="${reservation.pickupdate}" class="form-control"></div> <div class="form-group"> Enter Return
-					Date : <input type="date" name="returndate"
-						value="${reservation.returndate}" class="form-control"></div> <div class="form-group"> Enter No Of
-					Days : <input type="text" name="numofdays"
-						value="${reservation.numofdays}" class="form-control"> </div> <div class="form-group">Enter No Of
-					Passengers : <input type="text" name="numofpassengers"
-						value="${reservation.numofpassengers}" class="form-control"> </div><input
-						type="hidden" value="${reservation.rid}" name="rid" />
+						Enter Location : <input type="text" name="location"
+							value="${reservation.location}" class="form-control">
+					</div>
+					<div class="form-group">
+						Enter Time : <input type="time" name="time1"
+							value="${reservation.time1}" class="form-control">
+					</div>
+					<div class="form-group">
+						Enter Pickup Date : <input type="date" name="pickupdate"
+							value="${reservation.pickupdate}" class="form-control">
+					</div>
+					<div class="form-group">
+						Enter Return Date : <input type="date" name="returndate"
+							value="${reservation.returndate}" class="form-control">
+					</div>
+					<div class="form-group">
+						Enter No Of Days : <input type="text" name="numofdays"
+							value="${reservation.numofdays}" class="form-control">
+					</div>
+					<div class="form-group">
+						Enter No Of Passengers : <input type="text" name="numofpassengers"
+							value="${reservation.numofpassengers}" class="form-control">
+					</div>
+					<input type="hidden" value="${reservation.rid}" name="rid" />
 					<button class="btn btn-primary" type="submit">Save</button>
 
 				</form>

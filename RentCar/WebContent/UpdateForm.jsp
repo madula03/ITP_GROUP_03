@@ -1,10 +1,10 @@
-<%@page import="service.MaintenanceImp" %>
-<%@page import="service.IMaintenace" %>
+<%@page import="service.MaintenanceImp"%>
+<%@page import="service.IMaintenace"%>
 <%@page import="Model.RepairAndMaintenance"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.Connection"%>
 
-<%@page import="Servlet.GetMaintenanceServlet" %>
+<%@page import="Servlet.GetMaintenanceServlet"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -29,20 +29,14 @@
 
 <title>Maintenance</title>
 <style>
-
 body {
 	margin-top: 20px;
-	
 }
 
 .card {
 	margin-bottom: 1.5rem;
 	box-shadow: 0 1px 15px 1px rgba(52, 40, 104, .08);
 }
-
-
-
-
 
 .card {
 	position: relative;
@@ -66,8 +60,6 @@ body {
 	border-bottom-width: 1px;
 }
 
-
-
 .card-header {
 	padding: .75rem 1.25rem;
 	margin-bottom: 0;
@@ -78,8 +70,8 @@ body {
 
 .UPPER_card-header {
 	border-bottom-width: 5px;
-	
 }
+
 .UPPER_card-header {
 	padding: .75rem 1.25rem;
 	margin-bottom: 0;
@@ -87,8 +79,6 @@ body {
 	background-color: #red;
 	border-bottom: 1px solid #e5e9f2;
 }
-
-
 
 nav {
 	position: relative;
@@ -158,20 +148,19 @@ center {
 	font-family: Poppins;
 	text-transform: uppercase;
 }
+
 .button {
-  background-color: #133f75;
-  color: white;
-}
-h1{
-margin-left:140px;
+	background-color: #133f75;
+	color: white;
 }
 
-h1{
-margin-left:140px;
+h1 {
+	margin-left: 140px;
 }
 
-
-
+h1 {
+	margin-left: 140px;
+}
 </style>
 </head>
 
@@ -179,9 +168,9 @@ margin-left:140px;
 
 
 
-       
-       
- <%
+
+
+	<%
 
 
 String VehicleID=(String)request.getParameter("VehicleID");
@@ -191,7 +180,7 @@ GetMaintenanceServlet getmaintenanceservlet= new GetMaintenanceServlet();
 RepairAndMaintenance repairandmaintenance = getmaintenanceservlet.get_RepairAndMaintenance(VehicleID);
 
 %>
-  
+
 
 	<div class="container">
 		<h1 class="h3 mb-3">Profile</h1>
@@ -217,8 +206,7 @@ RepairAndMaintenance repairandmaintenance = getmaintenanceservlet.get_RepairAndM
 
 
 									<a href="#"><input type="submit" value="logout"
-										class="btn btn-primary btn-sm">
-									</a>
+										class="btn btn-primary btn-sm"> </a>
 
 								</div>
 							</form>
@@ -233,20 +221,21 @@ RepairAndMaintenance repairandmaintenance = getmaintenanceservlet.get_RepairAndM
 							<div>
 								<nav class='animated bounceInDown'>
 								<ul>
-									<li><a href="userProfile.jsp">DashBoard</a></li>
+									
 									<li class='sub-menu'><a href='#'>WorkOrders
 											<div class='fa fa-caret-down right'></div>
 									</a>
 										<ul>
 											<li><a href="ViewMaintenance.jsp">View Orders</a></li>
 											<li><a href="Add_Maintenance_Details.jsp">Add Orders</a></li>
-											<li><a href="Update_Maintenance_Details.jsp">Update/Delete Orders</a></li>
+											<li><a href="Update_Maintenance_Details.jsp">Update/Delete
+													Orders</a></li>
 										</ul>
 									<li><a href="UserViewMyEvent.jsp">Calendar</a></li>
 									<li><a href="UserViewMyEvent.jsp">Reports</a></li>
-									<li><a href="UserViewMyEvent.jsp">Mail</a></li>
+									<li><a href="https://mail.google.com/">Mail</a></li>
 									<li class='sub-menu'><a href='#'>Statistics</a></li>
-									
+
 								</ul>
 
 
@@ -267,31 +256,39 @@ RepairAndMaintenance repairandmaintenance = getmaintenanceservlet.get_RepairAndM
 				</div>
 			</div>
 			<div class="col-md-8 col-xl-9">
-				<div class="card" style="height:643px;">
+				<div class="card" style="height: 643px;">
 					<div class="card-header">
-						<h5 class="card-title mb-0">Updating End_Date of  <%=repairandmaintenance.getVehicleID()%></h5>
+						<h5 class="card-title mb-0">
+							Updating End_Date of
+							<%=repairandmaintenance.getVehicleID()%></h5>
 						<div class="card-body h-100"></div>
 					</div>
-															
-					    <form action="UpdateMaintenanceServlet?VehicleID=<%=repairandmaintenance.getVehicleID()%>" method="post">
-	
-          
-			
-				<label>End Date</label>
-				<input type="date" class="form-control" id="exampleInputPassword1" placeholder="date"  name="End_Date" value="<%=repairandmaintenance.getEnd_Date()%>" required><br>
-				
-				
-				
-				<input type="submit" class="button "  value="Update"  style="margin-left:500px;"><br>
-	</form><br><br>
-						
+
+					<form
+						action="UpdateMaintenanceServlet?VehicleID=<%=repairandmaintenance.getVehicleID()%>"
+						method="post">
+
+
+
+						<label>End Date</label> <input type="date" class="form-control"
+							id="exampleInputPassword1" placeholder="date" name="End_Date"
+							value="<%=repairandmaintenance.getEnd_Date()%>" required><br>
+
+
+
+						<input type="submit" class="button " value="Update"
+							style="margin-left: 500px;"><br>
+					</form>
+					<br>
+					<br>
+
 				</div>
 
 
-					
-				</div>
+
 			</div>
 		</div>
+	</div>
 
 
 	<script>
@@ -305,7 +302,7 @@ $(".sub-menu a").click(function () {
 
 
 
- 
+
 
 
 

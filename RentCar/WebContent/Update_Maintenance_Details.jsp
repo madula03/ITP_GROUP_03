@@ -1,18 +1,20 @@
-<%@page import="service.MaintenanceImp" %>
-<%@page import="service.IMaintenace" %>
+<%@page import="service.MaintenanceImp"%>
+<%@page import="service.IMaintenace"%>
 <%@page import="Model.RepairAndMaintenance"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.Connection"%>
 
 <%@page import="Servlet.GetMaintenanceServlet"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link href="https://unpkg.com/browse/bootstrap@4.1.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link
+	href="https://unpkg.com/browse/bootstrap@4.1.0/dist/css/bootstrap.min.css"
+	rel="stylesheet" />
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.css" />
 <link rel="stylesheet"
@@ -35,20 +37,14 @@
 
 <title>Maintenance</title>
 <style>
-
 body {
 	margin-top: 20px;
-	
 }
 
 .card {
 	margin-bottom: 1.5rem;
 	box-shadow: 0 1px 15px 1px rgba(52, 40, 104, .08);
 }
-
-
-
-
 
 .card {
 	position: relative;
@@ -72,8 +68,6 @@ body {
 	border-bottom-width: 1px;
 }
 
-
-
 .card-header {
 	padding: .75rem 1.25rem;
 	margin-bottom: 0;
@@ -84,8 +78,8 @@ body {
 
 .UPPER_card-header {
 	border-bottom-width: 5px;
-	
 }
+
 .UPPER_card-header {
 	padding: .75rem 1.25rem;
 	margin-bottom: 0;
@@ -93,8 +87,6 @@ body {
 	background-color: #red;
 	border-bottom: 1px solid #e5e9f2;
 }
-
-
 
 nav {
 	position: relative;
@@ -166,45 +158,44 @@ center {
 }
 
 th {
-  background-color: #133f75;
-  color: white;
+	background-color: #133f75;
+	color: white;
 }
 
 button {
-  background-color: #133f75;
-  color: white;
+	background-color: #133f75;
+	color: white;
 }
 
-
 table {
-  border-collapse: collapse;
-  width: 100%;
+	border-collapse: collapse;
+	width: 100%;
 }
 
 th, td {
-  text-align: left;
-  padding: 8px;
+	text-align: left;
+	padding: 8px;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(even) {
+	background-color: #f2f2f2
+}
 
 th {
-  background-color: #133f75;
-  color: white;
+	background-color: #133f75;
+	color: white;
 }
-
-
 </style>
 </head>
 <body>
 
 
 
-		
-			
 
 
-      <div class="container">
+
+
+	<div class="container">
 		<h1 class="h3 mb-3">Profile</h1>
 		<div class="row">
 			<div class="col-md-4 col-xl-3">
@@ -228,7 +219,7 @@ th {
 
 
 									<input type="submit" value="logout"
-										class="btn btn-primary btn-sm"> 
+										class="btn btn-primary btn-sm">
 
 								</div>
 							</form>
@@ -242,22 +233,24 @@ th {
 
 							<div>
 								<nav class='animated bounceInDown'>
-								<ul>
-									<li><a href="userProfile.jsp">DashBoard</a></li>
-									<li class='sub-menu'><a href='#'>WorkOrders
-											<div class='fa fa-caret-down right'></div>
-									</a>
-										<ul>
-											<li><a href="ViewMaintenance.jsp">View Orders</a></li>
-											<li><a href="Add_Maintenance_Details.jsp">Add Orders</a></li>
-											<li><a href="Update_Maintenance_Details.jsp">Update/Delete Orders</a></li>
-										</ul>
-									<li><a href="UserViewMyEvent.jsp">Calendar</a></li>
-									<li><a href="UserViewMyEvent.jsp">Reports</a></li>
-									<li><a href="UserViewMyEvent.jsp">Mail</a></li>
-									<li class='sub-menu'><a href='#'>Statistics</a></li>
-									
-								</ul>
+									<ul>
+								
+										<li class='sub-menu'><a href='#'>WorkOrders
+												<div class='fa fa-caret-down right'></div>
+										</a>
+											<ul>
+												<li><a href="ViewMaintenance.jsp">View Orders</a></li>
+												<li><a href="Add_Maintenance_Details.jsp">Add
+														Orders</a></li>
+												<li><a href="Update_Maintenance_Details.jsp">Update/Delete
+														Orders</a></li>
+											</ul>
+										<li><a href="UserViewMyEvent.jsp">Calendar</a></li>
+										<li><a href="UserViewMyEvent.jsp">Reports</a></li>
+										<li><a href="https://mail.google.com/">Mail</a></li>
+										<li class='sub-menu'><a href='#'>Statistics</a></li>
+
+									</ul>
 
 
 
@@ -279,90 +272,99 @@ th {
 			<div class="col-md-8 col-xl-9">
 				<div class="card" style="height: 643px;">
 					<div class="card-header">
-						<h5 class="card-title mb-0">Update or Delete Maintenance Details</h5>
+						<h5 class="card-title mb-0">Update or Delete Maintenance
+							Details</h5>
 						<div class="card-body h-100"></div>
 					</div>
-					
-<div style="height:640px;overflow-x:auto;">
-					<table>
-    <caption><h3><center>Repair And Maintenance Details</center></h3></caption> 
-         		<thead>
-         		<tr>
-         		<th>RepairID</th>
-         		<th>VehicleID</th>
-         		<th>Start_Date</th>
-         		<th>End_Date</th>
-         		<th>Description</th>
-         		<th>Maintenance_Cost</th>
-         		<th></th>
-         		<th></th>
-         	</tr>	
-         	
-         	     		
-         	      		
-         	   		
-         	         		
-         		</thead>
-         		
-         						
-            <%
+
+					<div style="height: 640px; overflow-x: auto;">
+						<table>
+							<caption>
+								<h3>
+									<center>Repair And Maintenance Details</center>
+								</h3>
+							</caption>
+							<thead>
+								<tr>
+									<th>RepairID</th>
+									<th>VehicleID</th>
+									<th>Start_Date</th>
+									<th>End_Date</th>
+									<th>Description</th>
+									<th>Maintenance_Cost</th>
+									<th></th>
+									<th></th>
+								</tr>
+
+
+
+
+
+							</thead>
+
+
+							<%
             IMaintenace irepairandmaintenance = new MaintenanceImp();
 			ArrayList<RepairAndMaintenance> arrayList = irepairandmaintenance.get_RepairAndMaintenance();
 				
 			
 			for(RepairAndMaintenance repairandmaintenance : arrayList){
 			%>
-			
-			 <tr>
-				<td> <%=repairandmaintenance.getRepairID() %> </td>
-				<td> <%=repairandmaintenance.getVehicleID() %> </td>
-				<td> <%=repairandmaintenance.getStart_Date() %> </td>
-				<td> <%=repairandmaintenance.getEnd_Date() %> </td>
-				<td> <%=repairandmaintenance.getDescription() %> </td>
-				<td> <%=repairandmaintenance.getMaintenance_Cost() %> </td>
-				
-						
-						
-						
-						
-						
-			<td><a href="UpdateForm.jsp?VehicleID=<%=repairandmaintenance.getVehicleID() %>"><button >Update</button></a></td>
-												
-			<td><form method="POST" action="DeleteMaintenanceServlet?VehicleID=<%=repairandmaintenance.getVehicleID()%>"><button>Delete</button></form></td>
-				
-				
-				
-				
-			</tr>
-			 
-				
-			
-			
-				
-			
-						
-					
-			<%	
+
+							<tr>
+								<td><%=repairandmaintenance.getRepairID() %></td>
+								<td><%=repairandmaintenance.getVehicleID() %></td>
+								<td><%=repairandmaintenance.getStart_Date() %></td>
+								<td><%=repairandmaintenance.getEnd_Date() %></td>
+								<td><%=repairandmaintenance.getDescription() %></td>
+								<td><%=repairandmaintenance.getMaintenance_Cost() %></td>
+
+
+
+
+
+
+								<td><a
+									href="UpdateForm.jsp?VehicleID=<%=repairandmaintenance.getVehicleID() %>"><button>Update</button></a></td>
+
+								<td><form method="POST"
+										action="DeleteMaintenanceServlet?VehicleID=<%=repairandmaintenance.getVehicleID()%>">
+										<button>Delete</button>
+									</form></td>
+
+
+
+
+							</tr>
+
+
+
+
+
+
+
+
+							<%	
 			   }
-            %> 
-    
-    
-    
-    </table>
-    </div>
-    <br>
-            <hr>
-            <br>
+            %>
 
 
-						
+
+						</table>
+					</div>
+					<br>
+					<hr>
+					<br>
+
+
+
 				</div>
 
 
-					
-				</div>
+
 			</div>
 		</div>
+	</div>
 
 
 	<script>
@@ -378,12 +380,12 @@ $(".sub-menu a").click(function () {
 
 
 
-  
-          
-	
-				
-	
-	
+
+
+
+
+
+
 
 
 

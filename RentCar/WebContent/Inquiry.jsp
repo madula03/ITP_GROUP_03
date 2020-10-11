@@ -5,7 +5,7 @@
 <style>
 body {
 	background-image: url('img/in.jpg');
-	background-size:cover;
+	background-size: cover;
 	background-repeat: no-repeat;
 }
 
@@ -104,43 +104,28 @@ textarea {
 	<div class="divform">
 		<p class="we">We are here to help you</p>
 		<form>
-			<label for="name">Name</label> 
-			<input type="text" id="name"name="name" placeholder="Name"> 
-			<br>
-			
-			<label for="booking">Booking Reference</label> 
-			<input type="text" id="booking" name="booking" placeholder="booking reference">
-			<br>
-			
-			<label for="email">Email</label> 
-			<input type="email" id="email" name="email" placeholder="123...@gmail.com"> 
-			<br>
-			
+			<label for="name">Name</label> <input type="text" id="name"
+				name="name" placeholder="Name"> <br> <label
+				for="booking">Booking Reference</label> <input type="text"
+				id="booking" name="booking" placeholder="booking reference">
+			<br> <label for="email">Email</label> <input type="email"
+				id="email" name="email" placeholder="123...@gmail.com"> <br>
+
 			<p class="help">What is your problem based on</p>
 
-			<input type="radio" name="problem" value="extend"> 
-			<label for="extend">Extend Reservation Date</label> 
-			<br> 
-			
-			<input type="radio" name="problem" value="cancel"> 
-			<label for="cancel">Cancel Reservation</label> 
-			<br> 
-			
-			<input type="radio" name="problem" value="change"> 
-			<label for="change">Change your details</label> 
-			<br> 
-			
-			<input type="radio" name="problem" value="others">
-			<label for="others">Other issues</label> 
-			<br> </br>  <br>
-			
-			<label for="comment">Comments</label> 
-			<br>
-			
-			<textarea rows="8" cols="90" name="comment" placeholder="Type here...."></textarea>
-			<br> <br> 
-			
-			<input type="submit" value="Submit">
+			<input type="radio" name="problem" value="extend"> <label
+				for="extend">Extend Reservation Date</label> <br> <input
+				type="radio" name="problem" value="cancel"> <label
+				for="cancel">Cancel Reservation</label> <br> <input
+				type="radio" name="problem" value="change"> <label
+				for="change">Change your details</label> <br> <input
+				type="radio" name="problem" value="others"> <label
+				for="others">Other issues</label> <br> </br> <br> <label
+				for="comment">Comments</label> <br>
+
+			<textarea rows="8" cols="90" name="comment"
+				placeholder="Type here...."></textarea>
+			<br> <br> <input type="submit" value="Submit">
 
 		</form>
 	</div>

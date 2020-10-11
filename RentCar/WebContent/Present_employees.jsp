@@ -90,8 +90,9 @@
 											<div class='fa fa-caret-down right'></div>
 									</a>
 										<ul>
-											<li><a href="Add_Employee.jsp">Add new	employees</a></li>
-											<li><a href="Present_employees.jsp">Present	employees</a></li>
+											<li><a href="Add_Employee.jsp">Add new employees</a></li>
+											<li><a href="Present_employees.jsp">Present
+													employees</a></li>
 											<li><a href="past_employee.jsp">Past employees</a></li>
 										</ul>
 									<li><a href="Add_Salary.jsp">Salary</a></li>
@@ -136,7 +137,8 @@
 						<th>Email</th>
 						<th>Job role</th>
 						<th>Basic_salary</th>
-						
+
+						<th></th>
 						<th></th>
 						<th></th>
 
@@ -162,16 +164,23 @@
 							<td><%=employee.getEmail()%></td>
 							<td><%=employee.getJobrole()%></td>
 							<td><%=employee.getBasicSal()%></td>
+
+
+
+
+
+
+
+	<td>
 							
-								
-						
-								
-								
-							
-					
-							
-						
-							
+								<form action="Add_Salary.jsp" method="post">
+									<input type="hidden" name="id11" class="btn btn-primary"
+										value="<%=employee.getNIC()%>"> <input type="submit"
+										value="calculate salary">
+								</form>
+							</td>
+
+
 							<td>
 								<form action="./GetEmployee" method="post">
 									<input type="hidden" name="id" class="btn btn-primary"
@@ -185,45 +194,49 @@
 
 
 								<form action="./DeleteEmployee" method="post">
-								
-								
-											<input type="hidden"  name=fname value="<%=employee.getFirstName()%>">
-			
-											<input type="hidden" name=lname value="<%=employee.getLastName()%>">
-											<input type="hidden" name=empid value="<%=employee.getEmpID()%>">
-											<input type="hidden" name=nic value="<%=employee.getNIC()%>">
-											<input type="hidden" name=address value="<%=employee.getAddress()%>">
-											<input type="hidden" name=phone value="<%=employee.getPhoneNum()%>">
-											
-											<input type="hidden" name=email value="<%=employee.getEmail()%>">
-											<input type="hidden" name=job value="<%=employee.getJobrole()%>">
-											
-											<input type="hidden" name=bsal value="<%=employee.getBasicSal()%>">
-													
-									
-													
-															
-											<input type="hidden" name="id" class="btn btn-danger"
+
+
+									<input type="hidden" name=fname
+										value="<%=employee.getFirstName()%>"> <input
+										type="hidden" name=lname value="<%=employee.getLastName()%>">
+									<input type="hidden" name=empid
+										value="<%=employee.getEmpID()%>"> <input type="hidden"
+										name=nic value="<%=employee.getNIC()%>"> <input
+										type="hidden" name=address value="<%=employee.getAddress()%>">
+									<input type="hidden" name=phone
+										value="<%=employee.getPhoneNum()%>"> <input
+										type="hidden" name=email value="<%=employee.getEmail()%>">
+									<input type="hidden" name=job
+										value="<%=employee.getJobrole()%>"> <input
+										type="hidden" name=bsal value="<%=employee.getBasicSal()%>">
+
+
+
+
+									<input type="hidden" name="id" class="btn btn-danger"
 										value="<%=employee.getNIC()%>"> <input type="submit"
 										value="Delete">
 								</form> </span></td>
 								
-								<td>
-							
-							</td>
-						</tr>
-					
+								
+								
+								
+								
+								
+								
+								
+
 						
+						</tr>
+
+
 						<%
 								}
 							%>
 						<div></div>
 					</table>
 
-				<form>
-				
-				
-				</form>
+					<form></form>
 
 
 

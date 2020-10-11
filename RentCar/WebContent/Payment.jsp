@@ -149,8 +149,8 @@
 					<label for="ccode"><b> Coupon code </b></label>
 				</div>
 				<div class="col-75">
-					<input type="Text" id="Coup" name="couponcode" data-mask="0000" title="enter only 3 digits"
-						placeholder="a345b">
+					<input type="Text" id="Coup" name="couponcode" data-mask="0000"
+						title="enter only 3 digits" placeholder="a345b">
 				</div>
 
 
@@ -162,7 +162,8 @@
 
 			<div class="row">
 
-				<input type="submit" value="Confirm"   onclick="return confirm('YOUR PAYMENT IS  PROCESSING,  WE WILL BE SEND A MAIL TO YOU AFTER CONFIRMING YOUR PAYMENT');">
+				<input type="submit" value="Confirm"
+					onclick="return confirm('YOUR PAYMENT IS  PROCESSING,  WE WILL BE SEND A MAIL TO YOU AFTER CONFIRMING YOUR PAYMENT');">
 			</div>
 		</form>
 	</div>

@@ -9,7 +9,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link href="https://unpkg.com/browse/bootstrap@4.1.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link
+	href="https://unpkg.com/browse/bootstrap@4.1.0/dist/css/bootstrap.min.css"
+	rel="stylesheet" />
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.css" />
 <link rel="stylesheet"
@@ -32,21 +34,15 @@
 
 <title>Maintenance</title>
 <style>
-
 body {
 	margin-top: 20px;
 	background-color: #ffffff;
-	
 }
 
 .card {
 	margin-bottom: 1.5rem;
 	box-shadow: 0 1px 15px 1px rgba(52, 40, 104, .08);
 }
-
-
-
-
 
 .card {
 	position: relative;
@@ -70,8 +66,6 @@ body {
 	border-bottom-width: 1px;
 }
 
-
-
 .card-header {
 	padding: .75rem 1.25rem;
 	margin-bottom: 0;
@@ -82,8 +76,8 @@ body {
 
 .UPPER_card-header {
 	border-bottom-width: 5px;
-	
 }
+
 .UPPER_card-header {
 	padding: .75rem 1.25rem;
 	margin-bottom: 0;
@@ -91,8 +85,6 @@ body {
 	background-color: #red;
 	border-bottom: 1px solid #e5e9f2;
 }
-
-
 
 nav {
 	position: relative;
@@ -113,7 +105,7 @@ nav ul li {
 
 nav ul li a {
 	display: block;
-		background: #ffffff;
+	background: #ffffff;
 	padding: 10px 15px;
 	color: #333;
 	text-decoration: none;
@@ -125,7 +117,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-background: #808080;
+	background: #808080;
 	color: #515151;
 }
 
@@ -147,7 +139,7 @@ nav ul li ul li a {
 }
 
 nav ul li ul li a:hover {
-		background: #ffffff;
+	background: #ffffff;
 	border-left: 4px solid #3498db;
 }
 
@@ -164,35 +156,33 @@ center {
 }
 
 th {
-  background-color: #133f75;
-  color: white;
+	background-color: #133f75;
+	color: white;
 }
 
 button {
-  background-color: #133f75;
-  color: white;
+	background-color: #133f75;
+	color: white;
 }
 
-
-
 table {
-  border-collapse: collapse;
-  width: 100%;
+	border-collapse: collapse;
+	width: 100%;
 }
 
 th, td {
-  text-align: left;
-  padding: 8px;
+	text-align: left;
+	padding: 8px;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(even) {
+	background-color: #f2f2f2
+}
 
 th {
-  background-color: #133f75;
-  color: white;
+	background-color: #133f75;
+	color: white;
 }
-
-
 </style>
 </head>
 <body>
@@ -221,7 +211,7 @@ th {
 
 
 									<input type="submit" value="logout"
-										class="btn btn-primary btn-sm"> 
+										class="btn btn-primary btn-sm">
 								</div>
 							</form>
 
@@ -235,7 +225,6 @@ th {
 							<div>
 								<nav class='animated bounceInDown'>
 									<ul>
-										<li><a href="userProfile.jsp">DashBoard</a></li>
 										<li class='sub-menu'><a href='#'>WorkOrders
 												<div class='fa fa-caret-down right'></div>
 										</a>
@@ -248,7 +237,7 @@ th {
 											</ul>
 										<li><a href="UserViewMyEvent.jsp">Calendar</a></li>
 										<li><a href="UserViewMyEvent.jsp">Reports</a></li>
-										<li><a href="UserViewMyEvent.jsp">Mail</a></li>
+										<li><a href="https://mail.google.com/">Mail</a></li>
 										<li class='sub-menu'><a href='#'>Statistics</a></li>
 
 									</ul>
@@ -275,7 +264,17 @@ th {
 					<div class="card-header">
 						<h5 class="card-title mb-0">Repair And Maintenance Details</h5>
 						<div class="card-body h-100"></div>
+						
+						<form method="post" action="search_maintanance.jsp"
+							style="margin-left: 450px; margin-top:-30px;">
+							<input type="date" name="date"	placeholder="search incomeStatement" style=" color: black;" required> 
+							<input	type="submit" value="search" style="background-color: #8080ff; height:27px;"	class="btn btn-success ">
+						</form>
+						
 					</div>
+					
+					
+			
 					<script>
 						$('.sub-menu ul').hide();
 						$(".sub-menu a").click(
@@ -289,7 +288,7 @@ th {
 
 
 
-					<div style="height:640px;overflow-x:auto;">
+					<div style="height: 640px; overflow-x: auto;">
 
 						<table>
 
@@ -309,12 +308,12 @@ th {
 
 
 
-							
 
 
 
 
-							<%
+
+								<%
 								IMaintenace irepairandmaintenance = new MaintenanceImp();
 								ArrayList<RepairAndMaintenance> arrayList = irepairandmaintenance.get_RepairAndMaintenance();
 								for (RepairAndMaintenance repairandmaintenance : arrayList) {
@@ -322,17 +321,17 @@ th {
 
 							</thead>
 							<tbody>
-							<tr>
-								<td><%=repairandmaintenance.getRepairID()%></td>
+								<tr>
+									<td><%=repairandmaintenance.getRepairID()%></td>
 
-								<td><%=repairandmaintenance.getVehicleID()%></td>
-								<td><%=repairandmaintenance.getStart_Date()%></td>
-								<td><%=repairandmaintenance.getEnd_Date()%></td>
-								<td><%=repairandmaintenance.getDescription()%></td>
-								<td><%=repairandmaintenance.getMaintenance_Cost()%></td>
+									<td><%=repairandmaintenance.getVehicleID()%></td>
+									<td><%=repairandmaintenance.getStart_Date()%></td>
+									<td><%=repairandmaintenance.getEnd_Date()%></td>
+									<td><%=repairandmaintenance.getDescription()%></td>
+									<td><%=repairandmaintenance.getMaintenance_Cost()%></td>
 
 
-							</tr>
+								</tr>
 							</tbody>
 
 							<%

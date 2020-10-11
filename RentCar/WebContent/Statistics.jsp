@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,20 +26,14 @@
 
 <title>Maintenance</title>
 <style>
-
 body {
 	margin-top: 20px;
-	
 }
 
 .card {
 	margin-bottom: 1.5rem;
 	box-shadow: 0 1px 15px 1px rgba(52, 40, 104, .08);
 }
-
-
-
-
 
 .card {
 	position: relative;
@@ -63,8 +57,6 @@ body {
 	border-bottom-width: 1px;
 }
 
-
-
 .card-header {
 	padding: .75rem 1.25rem;
 	margin-bottom: 0;
@@ -75,8 +67,8 @@ body {
 
 .UPPER_card-header {
 	border-bottom-width: 5px;
-	
 }
+
 .UPPER_card-header {
 	padding: .75rem 1.25rem;
 	margin-bottom: 0;
@@ -84,8 +76,6 @@ body {
 	background-color: #red;
 	border-bottom: 1px solid #e5e9f2;
 }
-
-
 
 nav {
 	position: relative;
@@ -155,13 +145,12 @@ center {
 	font-family: Poppins;
 	text-transform: uppercase;
 }
-
-
 </style>
 
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
@@ -187,7 +176,7 @@ center {
 </head>
 <body>
 
-<div class="container">
+	<div class="container">
 		<h1 class="h3 mb-3">Profile</h1>
 		<div class="row">
 			<div class="col-md-4 col-xl-3">
@@ -228,23 +217,25 @@ center {
 
 							<div>
 								<nav class='animated bounceInDown'>
-								<ul>
-									<li><a href="userProfile.jsp">DashBoard</a></li>
-									<li class='sub-menu'><a href='#'>WorkOrders
-											<div class='fa fa-caret-down right'></div>
-									</a>
-										<ul>
-											<li><a href="ViewMaintenance.jsp">View Orders</a></li>
-											<li><a href="Add_Maintenance_Details.jsp">Add/Delete Orders</a></li>
-											<li><a href="Update_Maintenance_Details.jsp">Update Orders</a></li>
-										</ul>
-									<li><a href="UserViewMyEvent.jsp">Calendar</a></li>
-									<li><a href="UserViewMyEvent.jsp">Reports</a></li>
-									<li><a href="UserViewMyEvent.jsp">Mail</a></li>
-									<li><a href="Statistics.jsp">Statistics</a></li>
-									
-									
-								</ul>
+									<ul>
+										<li><a href="userProfile.jsp">DashBoard</a></li>
+										<li class='sub-menu'><a href='#'>WorkOrders
+												<div class='fa fa-caret-down right'></div>
+										</a>
+											<ul>
+												<li><a href="ViewMaintenance.jsp">View Orders</a></li>
+												<li><a href="Add_Maintenance_Details.jsp">Add/Delete
+														Orders</a></li>
+												<li><a href="Update_Maintenance_Details.jsp">Update
+														Orders</a></li>
+											</ul>
+										<li><a href="UserViewMyEvent.jsp">Calendar</a></li>
+										<li><a href="UserViewMyEvent.jsp">Reports</a></li>
+										<li><a href="UserViewMyEvent.jsp">Mail</a></li>
+										<li><a href="Statistics.jsp">Statistics</a></li>
+
+
+									</ul>
 
 
 
@@ -268,9 +259,9 @@ center {
 					<div class="card-header">
 						<h5 class="card-title mb-0">Statistics</h5>
 						<div class="card-body h-100"></div>
-					
+
 					</div>
 
-	<div id="donut_single" style="width: 900px; height: 500px;"></div>
+					<div id="donut_single" style="width: 900px; height: 500px;"></div>
 </body>
 </html>

@@ -62,8 +62,8 @@
 								<div>
 
 
-									<input type="submit" value="logout"		class="btn btn-primary btn-sm">
-									</a>
+									<input type="submit" value="logout"
+										class="btn btn-primary btn-sm"> </a>
 
 								</div>
 							</form>
@@ -76,26 +76,21 @@
 						<div class="card-body text-center">
 
 							<div>
-									<nav class='animated bounceInDown'>
-									<ul>
-									
+								<nav class='animated bounceInDown'>
+								<ul>
+
 									<li class='sub-menu'><a href='#'>IncomeStatement
 											<div class='fa fa-caret-down right'></div>
 									</a>
 										<ul>
-											<li><a href="Insert_income_statement.jsp">Calculate IncomeStatement</a></li>
-											<li><a href="View_IncomeStatement.jsp">View IncomeStatement</a></li>
+											<li><a href="Insert_income_statement.jsp">Calculate
+													IncomeStatement</a></li>
+											<li><a href="View_IncomeStatement.jsp">View
+													IncomeStatement</a></li>
 										</ul>
-										
-										
-										
 									<li class='sub-menu'><a href='Insert_Rates.jsp'>Rates
 											<div class='fa fa-caret-down right'></div>
 									</a>
-										
-										
-										
-										
 								</ul>
 
 
@@ -125,73 +120,71 @@
 
 
 
-	<table border="2" cellpadding="12" class="table table-hover"  >
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Emp_ID</th>
-							<th>NIC</th>
-							<th>Address</th>
-							<th>Phone Num</th>
-							<th>Email</th>
-							<th>Job role</th>
-							<th>Basic_salary</th>
-							<th></th>
-							<th></th>	
-							
-						
-							
-							
-							
-														</tr>
-							<%
+					<table border="2" cellpadding="12" class="table table-hover">
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Emp_ID</th>
+						<th>NIC</th>
+						<th>Address</th>
+						<th>Phone Num</th>
+						<th>Email</th>
+						<th>Job role</th>
+						<th>Basic_salary</th>
+						<th></th>
+						<th></th>
+
+
+
+
+
+						</tr>
+						<%
 								Employee emp = new EmployeeImp();
 								ArrayList<NewEmployee> emplo = emp.listemployee();
 						
 								
 								for (NewEmployee employee : emplo) {
 							%>
-							<tr>
-								<td><%=employee.getFirstName()%></td>
-								<td><%=employee.getLastName()%></td>
-								<td><%=employee.getEmpID()%></td>
-								<td><%=employee.getNIC()%></td>
-								<td><%=employee.getAddress()%></td>
-								<td><%=employee.getPhoneNum()%></td>
-								<td><%=employee.getEmail()%></td>
-								<td><%=employee.getJobrole()%></td>
-								<td><%=employee.getBasicSal()%></td>
+						<tr>
+							<td><%=employee.getFirstName()%></td>
+							<td><%=employee.getLastName()%></td>
+							<td><%=employee.getEmpID()%></td>
+							<td><%=employee.getNIC()%></td>
+							<td><%=employee.getAddress()%></td>
+							<td><%=employee.getPhoneNum()%></td>
+							<td><%=employee.getEmail()%></td>
+							<td><%=employee.getJobrole()%></td>
+							<td><%=employee.getBasicSal()%></td>
 
-								<td>
-									<form action="./GetEmployee" method="post">
-										<input type="hidden" name="id" class="btn btn-primary"
-											value="<%=employee.getNIC()%>"> <input type="submit"
-											value="View">
-											
-											
-									</form></td><td> <span></span>
-									
-									
-		<form action="./DeleteEmployee" method="post">
-										<input type="hidden" name="id" class="btn btn-danger"
-											value="<%=employee.getNIC()%>"> <input type="submit"
-											value="Delete">
-									</form> </span>
-								</td>
-							</tr>
-							<%
+							<td>
+								<form action="./GetEmployee" method="post">
+									<input type="hidden" name="id" class="btn btn-primary"
+										value="<%=employee.getNIC()%>"> <input type="submit"
+										value="View">
+
+
+								</form>
+							</td>
+							<td><span></span>
+
+
+								<form action="./DeleteEmployee" method="post">
+									<input type="hidden" name="id" class="btn btn-danger"
+										value="<%=employee.getNIC()%>"> <input type="submit"
+										value="Delete">
+								</form> </span></td>
+						</tr>
+						<%
 								}
 							%>
-								<div>
-
-							</div>
-						</table>
+						<div></div>
+					</table>
 
 
 
 
 
-					<br>
-					<br>
+					<br> <br>
 
 				</div>
 

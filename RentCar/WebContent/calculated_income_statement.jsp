@@ -23,11 +23,9 @@
 <link rel="stylesheet" type="text/css" href=" CSS/ADMIN_PAGE.css">
 <link rel="stylesheet" type="text/css" href=" CSS/calculated_incSTM.css">
 <style>
-
-#td1{
- padding: 10px;
+#td1 {
+	padding: 10px;
 }
-
 </style>
 
 <title>MYEvent</title>
@@ -116,7 +114,7 @@
 					</div>
 
 
-		<%	
+					<%	
 		
 		
 		//String rSalary=String.format(request.getParameter("date"));
@@ -159,178 +157,206 @@
 
 
 
-			<table border="3"  style="height:50%; width:100%; margin-top:20px;">
-			<caption style="margin-left:600px;"><b>DATE : <%out.println(date); %></b></caption>
-			
-			<tr>
-			<td bgcolor="#8080ff" id="td1">Income</td>
-			<td ></td>
-			<td ></td>
-			
-			</tr>
-			</tr>
-			<tr>
-			<td id="td1"> Rent income</td>
-			<td style="  padding: 10px;"><%out.println(Rent_income); %></td>
-			<td></td>
-			
-			</tr>
-			
-			</tr>
-			<tr>
-			<td id="td1">other income</td>
-			<td id="td1" ><%out.println(other_income); %></td>
-			<td ></td>
-			</tr>
-			
-			
-			
-		
-				<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			
-			</tr>
-			
-			
-			
-				<tr>
-			<td   id="td1"><b>Total income</b></td>
-			<td></td>
-			<td  id="td1"><%out.println(tot_inc); %></td>
-				
-				</tr>
-		
-			
-			
-			
-			<tr>
-			
-			
-			
-			
-			
-			<td bgcolor="#8080ff"  id="td1">Expenses</td>
-			<td ></td>
-			<td></td>
-			
-			</tr>
-			
-				<tr>
-			<td   id="td1">salary</td>
-			<td   id="td1"><%out.println(Salary); %></td>
-			<td></td>
-							
-			
-			</tr>
-			
-			
-			
-			<tr>
-			<td   id="td1">maintance</td>
-			<td   id="td1"><%out.println(maintanance); %></td>
-			<td></td>
-							
-			
-			</tr>
-			
-			
-			
-			<tr>
-			<td   id="td1">electricity</td>
-			<td   id="td1"><%out.println(electricity); %></td>
-			<td></td>
-			
-			</tr>
-			<tr>
-			<td   id="td1">rent expenses</td>
-			<td   id="td1"><%out.println(rent_expenses); %></td>
-			<td></td>
-			
-			</tr>
-			<tr>
-			<td   id="td1">other expenses</td>
-			<td   id="td1"><%out.println(other_expenses); %></td>
-			<td></td>
-				
-			</tr>
-			
-			</tr>
-			<tr>
-			<td   id="td1"><b>Total Expense</b></td>
-			<td></td>
-			<td   id="td1">(<%out.println(tot_exp); %>)</td>
-				
-			</tr>
-			
-			
-			
-				<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			
-			</tr>
-			
-		
-			
-			</tr>
-			
-			</tr>
-			<tr>
-			<td bgcolor="#8080ff">profit or loss</td>
-			<td></td>
-			<td  id="td1"><%out.println(profit_or_loss); %></td>
-			
-			</tr>
-			
-		
-			
-			<tr>
-			<td bgcolor="#8080ff">budjet  (10% from profit)</td>
-			<td></td>
-			<td  id="td1"><%out.println(budget); %></td>
-			
-			</tr>
-			
-			</table>
-	
-			
-			
-	
-			
-				 <form method="post" action="AddIncomeStatementServlet">
-			<input type="hidden"  name="date" value="<%out.println(date); %>">
-			
-			<input type="hidden" name=Salary value="<%out.println(Salary);  %>">
-			<input type="hidden" name=maintanance value="<%out.println(maintanance);  %>">
-			<input type="hidden" name=electricity value="<%out.println(electricity);  %>">
-			<input type="hidden" name=rent_expenses value="<%out.println(rent_expenses);  %>">
-			<input type="hidden" name=other_expenses value="<%out.println(other_expenses);  %>">
-			
-			<input type="hidden" name=Rent_income value="<%out.println(Rent_income);  %>">
-			<input type="hidden" name=other_income value="<%out.println(other_income);  %>">
-			
-			<input type="hidden" name=tot_exp value="<%out.println(tot_exp);  %>">
-			<input type="hidden" name=tot_inc value="<%out.println(tot_inc);  %>">
-			
-			
-			<input type="hidden" name=profit_or_loss value="<%out.println(profit_or_loss);  %>">
-			<input type="hidden" name=budget value="<%out.println(budget);  %>">
-											
-						
-			<input type="submit"  class="btn btn-success " value="submit" style="background-color: #8080ff;margin-left:600px; margin-top:100px;" onclick="return confirm('Do you really want to submit the form?');">	
-			
-			</form>		
-						
+					<table border="3"
+						style="height: 50%; width: 100%; margin-top: 20px;">
+						<caption style="margin-left: 600px;">
+							<b>DATE : <%out.println(date); %></b>
+						</caption>
+
+						<tr>
+							<td bgcolor="#8080ff" id="td1">Income</td>
+							<td></td>
+							<td></td>
+
+						</tr>
+						</tr>
+						<tr>
+							<td id="td1">Rent income</td>
+							<td style="padding: 10px;">
+								<%out.println(Rent_income); %>
+							</td>
+							<td></td>
+
+						</tr>
+
+						</tr>
+						<tr>
+							<td id="td1">other income</td>
+							<td id="td1">
+								<%out.println(other_income); %>
+							</td>
+							<td></td>
+						</tr>
+
+
+
+
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+
+						</tr>
+
+
+
+						<tr>
+							<td id="td1"><b>Total income</b></td>
+							<td></td>
+							<td id="td1">
+								<%out.println(tot_inc); %>
+							</td>
+
+						</tr>
+
+
+
+
+						<tr>
+
+
+
+
+
+							<td bgcolor="#8080ff" id="td1">Expenses</td>
+							<td></td>
+							<td></td>
+
+						</tr>
+
+						<tr>
+							<td id="td1">salary</td>
+							<td id="td1">
+								<%out.println(Salary); %>
+							</td>
+							<td></td>
+
+
+						</tr>
+
+
+
+						<tr>
+							<td id="td1">maintance</td>
+							<td id="td1">
+								<%out.println(maintanance); %>
+							</td>
+							<td></td>
+
+
+						</tr>
+
+
+
+						<tr>
+							<td id="td1">electricity</td>
+							<td id="td1">
+								<%out.println(electricity); %>
+							</td>
+							<td></td>
+
+						</tr>
+						<tr>
+							<td id="td1">rent expenses</td>
+							<td id="td1">
+								<%out.println(rent_expenses); %>
+							</td>
+							<td></td>
+
+						</tr>
+						<tr>
+							<td id="td1">other expenses</td>
+							<td id="td1">
+								<%out.println(other_expenses); %>
+							</td>
+							<td></td>
+
+						</tr>
+
+						</tr>
+						<tr>
+							<td id="td1"><b>Total Expense</b></td>
+							<td></td>
+							<td id="td1">(<%out.println(tot_exp); %>)
+							</td>
+
+						</tr>
+
+
+
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+
+						</tr>
+
+
+
+						</tr>
+
+						</tr>
+						<tr>
+							<td bgcolor="#8080ff">profit or loss</td>
+							<td></td>
+							<td id="td1">
+								<%out.println(profit_or_loss); %>
+							</td>
+
+						</tr>
+
+
+
+						<tr>
+							<td bgcolor="#8080ff">budjet (10% from profit)</td>
+							<td></td>
+							<td id="td1">
+								<%out.println(budget); %>
+							</td>
+
+						</tr>
+
+					</table>
+
+
+
+
+
+					<form method="post" action="AddIncomeStatementServlet">
+						<input type="hidden" name="date" value="<%out.println(date); %>">
+
+						<input type="hidden" name=Salary
+							value="<%out.println(Salary);  %>"> <input type="hidden"
+							name=maintanance value="<%out.println(maintanance);  %>">
+						<input type="hidden" name=electricity
+							value="<%out.println(electricity);  %>"> <input
+							type="hidden" name=rent_expenses
+							value="<%out.println(rent_expenses);  %>"> <input
+							type="hidden" name=other_expenses
+							value="<%out.println(other_expenses);  %>"> <input
+							type="hidden" name=Rent_income
+							value="<%out.println(Rent_income);  %>"> <input
+							type="hidden" name=other_income
+							value="<%out.println(other_income);  %>"> <input
+							type="hidden" name=tot_exp value="<%out.println(tot_exp);  %>">
+						<input type="hidden" name=tot_inc
+							value="<%out.println(tot_inc);  %>"> <input type="hidden"
+							name=profit_or_loss value="<%out.println(profit_or_loss);  %>">
+						<input type="hidden" name=budget
+							value="<%out.println(budget);  %>"> <input type="submit"
+							class="btn btn-success " value="submit"
+							style="background-color: #8080ff; margin-left: 600px; margin-top: 100px;"
+							onclick="return confirm('Do you really want to submit the form?');">
+
+					</form>
+
 				</div>
 
 
-					
-				</div>
+
 			</div>
 		</div>
+	</div>
 
 
 
