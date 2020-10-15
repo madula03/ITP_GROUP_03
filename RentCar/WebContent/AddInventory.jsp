@@ -71,7 +71,6 @@ glyphicon glyphicon-log-out"></span>
 								<ul>
 									<li><a href="view_inventories.jsp">Inventories</a></li>
 									<li><a href="AddInventory.jsp">Add Inventory</a></li>
-									<li><a href="#">Request For Repair</a></li>
 									<li><a href="#">Report</a></li>
 
 									</a>

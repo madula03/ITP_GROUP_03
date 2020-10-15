@@ -13,4 +13,8 @@ public interface IInventoryService {
 	
 	public void updateInventory(Inventory inventory);
 	
+	public ArrayList<Inventory> get_InventoryCategory(String category);
+	
+	
+	
 }

@@ -1,7 +1,4 @@
-/Dao/
-/Entity/
-/Model/
-/Servlet/
 /com/
-/service/
 /util/
+/service/
+/Controller/

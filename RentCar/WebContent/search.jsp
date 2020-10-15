@@ -1,18 +1,14 @@
-<%@page import="service.InventoryServiceimpl"%>
-<%@page import="service.IInventoryService"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="Model.Inventory"%>
-<%@page import="java.util.ArrayList"%>
+<%@page import="service.InventoryServiceimpl"%>
+<%@ page import="java.util.ArrayList" %>
 
 
-
-
-
-
-
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
+<html>
 <head>
 <style>
 .button4 {
@@ -24,17 +20,7 @@ display: inline-block;
   margin: 4px 2px;
   cursor: pointer;
  width: 145px;
-}
-#search {
-  width: 357px;
-  margin: 4px auto;
-  text-align: right;
-  display: inline-block;
-  float:right;
-	margin-right: 18px;
-}
-
-</style>
+}</style>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -139,10 +125,6 @@ glyphicon glyphicon-log-out"></span>
 					<br>
 
 
-					<form id="search" class="form-inline" method="post" action="search.jsp">
-<input type="text" name="category" class="form-control" placeholder="Search by category">
-<button type="submit" name="save" class="btn btn-primary">Search</button>
-</form>
 
 					<table border="1" cellpadding="12" class="table table-hover">
 
@@ -165,12 +147,19 @@ glyphicon glyphicon-log-out"></span>
 
 						</thead>  							
             <%
+            
+    		
+    		String categories = request.getParameter("category");
+    		
+            InventoryServiceimpl impl=new InventoryServiceimpl();
+    		ArrayList<Inventory> inventory= new ArrayList();
+    		
+    		inventory = impl.get_InventoryCategory(categories);
+            
+    		for(Inventory invetory:inventory){
            
-            IInventoryService iInventoryservice = new InventoryServiceimpl();
-			ArrayList<Inventory> arrayList = iInventoryservice.get_Inventory_details();
-				
-			
-			for(Inventory invetory : arrayList){
+           	
+           	
 			%>
 			
 			 <tbody>
@@ -204,7 +193,10 @@ glyphicon glyphicon-log-out"></span>
 						
 					
 			<%	
-			   }
+			
+    		}
+    		
+    		 
             %>     
 		</table>
 

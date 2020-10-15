@@ -104,7 +104,11 @@ public class ReservationController extends HttpServlet {
 		
 		if(rid.isEmpty() || rid==null) {
 			if(reservationdao.save(r)) {
-				request.setAttribute("message", "Saved Successfully");
+				request.setAttribute("message", "Saved successfully");
+				request.setAttribute("startdate", r.getPickupdate());
+			
+				request.setAttribute("enddate", r.getReturndate());
+				
 			}
 		}else {
 			r.setRid(Integer.parseInt(rid));
@@ -112,11 +116,8 @@ public class ReservationController extends HttpServlet {
 				request.setAttribute("message", "updated Successfully");
 			}
 		}
-
-		
-		dispatcher = request.getRequestDispatcher("/Product.jsp");
-		dispatcher.forward(request, response);
-		listReservation(request, response);
+	
+		request.getRequestDispatcher("Product.jsp").forward(request, response);
 
 	}
 

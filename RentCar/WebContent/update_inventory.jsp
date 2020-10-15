@@ -118,7 +118,7 @@ glyphicon glyphicon-log-out"></span>
 					<%
 	String carID=(String)request.getParameter("CarID");
 	GetInventoryServlet getRatesservlet= new GetInventoryServlet();
-	Inventory inventory = getRatesservlet. get_values_of_Inventory(carID);
+	Inventory inventory = getRatesservlet.get_values_of_Inventory(carID);
 	
 	System.out.println(inventory.getUrl());
 											%>

@@ -268,6 +268,75 @@ public class InventoryServiceimpl implements IInventoryService{
 
 		}
 
+
+
+
+
+
+
+		@Override
+		public ArrayList<Inventory> get_InventoryCategory(String category) {
+			// TODO Auto-generated method stub
+			connection = DBConnectionUtil.getDBConnection();
+
+			preparedStatement = null;
+
+			ArrayList<Inventory> arraylist = new ArrayList<>();
+
+			try {
+
+				String sql = "select * from inventory where category=?";
+				preparedStatement = connection.prepareStatement(sql);
+				preparedStatement.setString(1,category);
+				resultset = preparedStatement.executeQuery();
+
+				while (resultset.next()) {
+
+					Inventory inventory = new Inventory();
+
+					
+				
+					
+					
+					
+					 inventory.setCarID(resultset.getString("carID"));
+					 inventory.setModel(resultset.getString("model"));
+					 inventory.setCategory(resultset.getString("category"));
+					
+					 inventory.setSupplierID(resultset.getString("supID"));
+					 inventory.setDescription(resultset.getString("descriptionn"));
+					 
+					 inventory.setNoOfPassengers(resultset.getInt("noOfPass"));
+					
+
+				
+					
+					arraylist.add(inventory);
+
+				}
+
+			} catch (Exception e) {
+				
+				System.out.println(e);
+			} finally {
+				/*
+				 * Close prepared statement and database connectivity at the end of transaction
+				 */
+				try {
+					if (preparedStatement != null) {
+						preparedStatement.close();
+					}
+					if (connection != null) {
+						connection.close();
+					}
+				} catch (SQLException e) {
+					
+				}
+			}
+
+			return arraylist;
+		}
+
 	
 	
 	
