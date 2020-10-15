@@ -66,7 +66,8 @@ public class GetIncomeStatement extends HttpServlet {
 		try {
 
 			String sql = "select * from IncomeStatement where date1 LIKE  '%' +?+ '%'";
-
+			
+		
 			preparedstatement = connection.prepareStatement(sql);
 			preparedstatement.setString(1, date);
 			resultset = preparedstatement.executeQuery();

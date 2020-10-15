@@ -14,33 +14,20 @@
 
 //String des=request.getParameter("Salary"));
 
-int count=Integer.parseInt(request.getParameter("count"));
-
-
-
-String[] description =new String[10] ;
-int[] amount=new int[10];
-
-for(int i=0;i<count;i++){
-	
-	 description[i]=request.getParameter("expenceDes"+i);
-	 amount[i]=Integer.parseInt(request.getParameter("amount"+i));
-	
-	
-}
+ 
 %>
 
 
 
-
+<form  action="AddExpenseServlet"  method="post">
 
 	<input type="text" name="count" value="<%=count%>"><br><br>
 
 	<%
 	for(int i=0;i<count;i++){
 	%>	
-		<input type="text" name="expenceDes" value="<%=description[i]%>"><br>
-		<input type="text" name="amount" value="<%=amount[i]%>"><br><br>
+		<input type="text" name="expenceDes+i" value="<%=description[i]%>"><br>
+		<input type="text" name="amount+i" value="<%=amount[i]%>"><br><br>
 
 		
 
@@ -49,24 +36,24 @@ for(int i=0;i<count;i++){
 	}
 	%>
 	
-	
-	
+	<input type="submit"  value="submit">	
+</form>
 
 
 
 
 
-<form  action="AddExpenseServlet"  method="post">
+
 
 <input type="hidden" name="count" value="<%=count%>"><br><br>
 
-<input type="hidden" name="expenceDes" value="<%=description%>"><br>
-		<input type="hidden" name="amount" value="<%=amount%>"><br><br>
+<input type="text" name="expenceDes" value="<%=description%>"><br>
+		<input type="text" name="amount" value="<%=amount%>"><br><br>
 		
 		
-		<input type="submit"  value="submit">
+	
 
-</form>
+
 
 
 

@@ -23,7 +23,7 @@
 						Driver name<input type="text" name="name" class="form-control"
 							value="${driver.name}" required>
 					</div>
-					<div
+				
 						class="form-group>Driver dob<input type= "date" class="form-control" name="dob"value = "${driver.dob}" required></div>
 <div class="form-group">Driver mail<input type= "mail" class="form-control" name="email"value = "${driver.email}" required></div>
 <div class="form-group">Driver licence  number<input type= "text" class="form-control" name="licence_num"value = "${driver.licence_num}"required></div>

@@ -17,7 +17,6 @@ body{
 
 
 
-
 }
 
 </style>
@@ -33,31 +32,31 @@ var count = 0;
 function  myFunction(){
 	
 	
-	
-	var x = document.createElement("INPUT");
+	  var x = document.createElement("INPUT");
 	  x.setAttribute("type", "text");
-	 // x.setAttribute("value", "Hello World!");
+	  x.setAttribute("value", "Expense type");
 	  x.setAttribute("name", "expenceDes"+count)
-	  document.getElementById("expenseForm").appendChild(x);
+	  x.setAttribute("style", "width:200px;margin-left:240px;")
+	  document.getElementById("description").appendChild(x);
 	    
 	  
-	  var kk =document.write($nbsp);
-	 // document.getElementById("expenseForm").appendChild(kk);
+	  var a1 = document.createElement("br");
+	  document.getElementById("description").appendChild(a1);
+	  var a2 = document.createElement("br");
+	  document.getElementById("description").appendChild(a2);
 	  
 	  
 	  var y = document.createElement("INPUT");
 	  y.setAttribute("type", "number");
 	  y.setAttribute("name", "amount"+count)
-	  document.getElementById("expenseForm").appendChild(y);
-	
-	  
-	  
+	  y.setAttribute("style", "width:200px;margin-left:40px;")
+	  document.getElementById("amount").appendChild(y);
+		  
 	  
 	  var z = document.createElement("br");
-	  document.getElementById("expenseForm").appendChild(z);
-	  
+	  document.getElementById("amount").appendChild(z);
 	  var g = document.createElement("br");
-	  document.getElementById("expenseForm").appendChild(g);
+	  document.getElementById("amount").appendChild(g);
 	  
 	  count++;
 }
@@ -67,7 +66,7 @@ function finalSubmit() {
 	  x.setAttribute("type", "hidden");
 	  x.setAttribute("value",count);
 	  x.setAttribute("name", "count")
-	   document.getElementById("expenseForm").appendChild(x);
+	   document.getElementById("amount").appendChild(x);
 }
 
 
@@ -77,12 +76,11 @@ function finalSubmit() {
   <button onclick="myFunction()">Click me</button>
   
   
-  <form action="display.jsp" method="post">
- <div id="expenseForm">
- 
- 
- </div>
+  <form action="AddExpenseServlet" method="post">
   
+  
+<div id="description"> </div>
+<div id="amount"> </div>
 
   
 <button onclick="finalSubmit()" type="submit">submit</button>

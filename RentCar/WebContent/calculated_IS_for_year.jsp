@@ -1,9 +1,9 @@
 <%@page import="service.RateServiceimpl"%>
-<%@page import="service.IRateService"%>
+<%@page import="service.IS_for_the_year"%>
 <%@page import="Model.IncomeStatement"%>
 <%@page import="java.util.ArrayList"%>
 
-<%@page import="Servlet.GetIncomeStatement"%>
+<%@page import="Servlet.Get_IS_for_the_year"%>
 
 
 
@@ -40,24 +40,65 @@
 </head>
 
 <body>
-<%
-	String date =request.getParameter("date");
+	<%
+	String date = (String) request.getParameter("date");
 
-	GetIncomeStatement getIncomeStatementservlet = new GetIncomeStatement();
+	IS_for_the_year IS_FOR_THE_YEAR = new IS_for_the_year();
+	IncomeStatement IS = IS_FOR_THE_YEAR.get_values_of_IncomeStatement_for_the_year(date);
+	
+	
+    
+    
 
-	IncomeStatement IS = getIncomeStatementservlet.get_values_of_IncomeStatement(date);
+   
+	
+	
 	if (IS == null) {
 		out.println("<script type=\"text/javascript\">");
-		out.println("alert('This date dosent exisit');");
-		out.println("location='View_IncomeStatement.jsp';");
+		out.println("alert('This date dosent have any incomestatement');");
+		out.println("location='IS_for_the_year.jsp';");
 		out.println("</script>");
 	}
+	
+	
+
+	
+	
+
+	
+	
+	
 	%>
 
 
 
 	<%
 		if (IS != null) {
+			
+			int no_of_dates= Integer.parseInt(IS.getDate());
+
+			
+			if(no_of_dates<3){
+					out.println("<script type=\"text/javascript\">");
+					out.println("alert('This date dosent contain 12 months');");
+					out.println("location='IS_for_the_year.jsp';");
+					out.println("</script>");
+					
+				}
+			
+			
+			  float profitORloss=  IS.getProfit_loss();
+			  float  budjet;
+			  
+			  if(profitORloss>0)
+			  {
+				  budjet=profitORloss*10/100;
+			  }else
+			  {
+				  budjet=0;
+			  }
+			  
+			
 	%>
 	<div class="container">
 		<h1 class="h3 mb-3">Profile</h1>
@@ -152,9 +193,7 @@
 					<table border="3"
 						style="height: 50%; width: 100%; margin-top: 20px;">
 						<caption style="margin-left: 600px;">
-							<b>DATE : <%
-														out.println(date);
-													%></b>
+							<b>DATE : <%=date%></b>
 						</caption>
 
 
@@ -287,24 +326,42 @@
 
 
 
-						
+						<tr>
+							<td bgcolor="#8080ff">budjet</td>
+							<td></td>
+							<td id="td1"><%=budjet%></td>
+
+						</tr>
 
 					</table>
 
 
-					<a href="View_IncomeStatement.jsp"><button
-							style="margin-left: 600px; margin-top: 100px; width: 100px; background-color: #8080ff;"class="btn btn-success ">
-							<span style="color: white;">CORRECT</span>
-						</button></a>
+				
+
+
+
+
+					<form method="post" action="Add_IS_for_the_year">
+						<input type="hidden" name="date" value="<%=date %>">
+
+						<input type="hidden" name="Salary"	value="<%  out.println( IS.getSalary());   %>">
+						 <input type="hidden"name="maintanance" value="<%   out.println( IS.getMaintance());    %>">
+						<input type="hidden" name="electricity" value="<%   out.println( IS.getElectricity());     %>"> 
+						<input	type="hidden" name="rent_expenses" value="<%  out.println( IS.getRent_expenses());          %>"> 
+						<input type="hidden" name="other_expenses" value="<%  out.println( IS.getOther_expenses());      %>">
+						<input	type="hidden" name="Rent_income"	value="<%  out.println( IS.getRent_income());      %>">
+						<input	type="hidden" name="other_income"	value="<%  out.println( IS.getOther_income());        %>">
+						<input	type="hidden" name="tot_exp" value="<%  out.println( IS.getTOTAL_Expense());   %>">
+						<input type="hidden" name="tot_inc"	value="<%  out.println( IS.getTOTAL_INCOME());    %>">
+						<input type="hidden"name="profit_or_loss" value="<%  out.println( IS.getProfit_loss());        %>">
+						<input type="hidden" name="budget" value="<%out.println(budjet); %>"> 
 						
-						
-						
-					<form action="DeleteIncomeStatementMonthServlet"  method="post">	
-						<input type="hidden"  name="date" value="<%=date%>">
-						<input type="submit" value="IN CORRECT"	style="margin-left:450px; margin-top: -35px; width: 120px; background-color: #8080ff;"class="btn btn-success ">
+						<input type="submit" class="btn btn-success " value="submit"style="background-color: #8080ff; margin-left: 600px; margin-top: 100px;"
+							onclick="return confirm('Do you really want to submit the form?');">
+
 					</form>
-						
-						
+
+
 
 
 

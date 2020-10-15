@@ -38,6 +38,16 @@
 <body>
 
 
+
+
+
+
+
+
+
+
+
+
 	<div class="container">
 		<h1 class="h3 mb-3">Profile</h1>
 		<div class="row">
@@ -124,7 +134,63 @@
 
 
 
-						<form method="post" action="calculated_income_statement.jsp">
+
+
+<script>
+var count = 0;
+
+function  myFunction(){
+	
+	
+	
+	  var x = document.createElement("INPUT");
+	  x.setAttribute("type", "text");
+	  x.setAttribute("value", "Expense type");
+	  x.setAttribute("name", "expenceDes"+count);
+	  x.setAttribute("placeholder", "description");
+	  x.setAttribute("style", "width:200px;margin-left:40px;")
+	  document.getElementById("description").appendChild(x);
+	    
+	  
+	  var a1 = document.createElement("br");
+	  document.getElementById("description").appendChild(a1);
+	  var a2 = document.createElement("br");
+	  document.getElementById("description").appendChild(a2);
+	  
+	  
+	  var y = document.createElement("INPUT");
+	  y.setAttribute("type", "number");
+	  y.setAttribute("name", "amount"+count);
+	  y.setAttribute("value", "0000");
+	  y.setAttribute("style", "width:200px;margin-left:40px;")
+	  document.getElementById("amount").appendChild(y);
+		  
+	  
+	  var z = document.createElement("br");
+	  document.getElementById("amount").appendChild(z);
+	  var g = document.createElement("br");
+	  document.getElementById("amount").appendChild(g);
+	  
+	  count++;
+}
+
+function finalSubmit() {
+	var x = document.createElement("INPUT");
+	  x.setAttribute("type", "hidden");
+	  x.setAttribute("value",count);
+	  x.setAttribute("name", "count")
+	   document.getElementById("description").appendChild(x);
+}
+
+
+</script>
+
+
+
+
+
+
+						<form method="post" action="AddExpenseServlet">
 							<p id="date" style="margin-top: 60px;">
 								Enter the date<input type="date" name="date" required>
 							</p>
@@ -159,8 +225,7 @@
 
 								<tr>
 									<td id="td1"><p id="p1">Salary</p></td>
-									<td style="padding: 5px;"><input type="number"
-										name="Salary" style="margin-right: -50px;" required></td>
+									<td style="padding: 5px;"><input type="number"	name="Salary" style="margin-right: -50px;" required></td>
 								</tr>
 
 								<tr>
@@ -177,26 +242,26 @@
 
 								<tr>
 									<td id="td1"><p id="p1">Rent expenses</p></td>
-									<td style="padding: 5px;"><input type="number"
-										name="rent_expenses" style="margin-right: -50px;" required></td>
+									<td style="padding: 5px;"><input type="number"	name="rent_expenses" style="margin-right: -50px;" required></td>
 								</tr>
 
 								<tr>
-									<td id="td1"><p id="p1">Other expenses</p></td>
-									<td style="padding: 5px;"><input type="number"
-										name="other_expenses" style="margin-right: -50px;" required></td>
+									<td id="td1"><p id="p1">Other expenses </p><div id="description"> </div></td>
+									<td style="padding: 5px;"><br><br><div id="amount"> </div></td>
 								</tr>
 
 
 
 							</table>
 
-
-							<input type="submit" value="CALCULATE" class="btn btn-success "
+							<input type="submit"  onclick="finalSubmit()"   value="CALCULATE" class="btn btn-success "
 								style="margin-left: 540px; margin-top: 10px; width: 150px; height: 45px; background-color: #8080ff;">
 					</div>
 
 					</form>
+					<button onclick="myFunction()"  style="margin-top:-90px; width:100px;margin-left:270px;background-color: #8080ff;">ADD</button>
+					
+					
 
 				</div>
 			</div>
