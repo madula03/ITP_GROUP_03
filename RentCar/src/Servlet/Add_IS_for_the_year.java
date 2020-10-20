@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Model.IncomeStatement;
 import service.IIncomeStatementService;
+import service.IS_for_the_year;
 import service.IncomeStatementServiceimpl;
 
 /**
@@ -76,10 +77,10 @@ public class Add_IS_for_the_year extends HttpServlet {
 		is.setProfit_loss(profit_or_loss);
 		is.setBudget(budget);
 
-		IIncomeStatementService I_is = new IncomeStatementServiceimpl();
-		I_is.insert_income_statement(is);
+		IS_for_the_year I_is = new IS_for_the_year();
+		I_is.Insert_IS_ForYearEnded(is);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/IS_for_the_year.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Add_IS_for_the_year.jsp");
 		dispatcher.forward(request, response);
 
 	}

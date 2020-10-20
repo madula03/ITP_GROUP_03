@@ -52,7 +52,7 @@ public class AddRateServlet extends HttpServlet {
 		Rates rates = new Rates();
 
 	
-		rates.setVechileId(request.getParameter("vecid"));
+		rates.setCategory(request.getParameter("vecid"));
 	
 		rates.setAmount(request.getParameter("amount"));
 

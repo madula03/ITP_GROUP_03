@@ -3,7 +3,7 @@ package Model;
 public class Rates {
 
 	private  String RateId;
-	private  String VechileId;
+	private  String Category;
 	private  String Amount;
 	
 	
@@ -14,11 +14,11 @@ public class Rates {
 	public void setRateId(String rateId) {
 		RateId = rateId;
 	}
-	public String getVechileId() {
-		return VechileId;
+	public String getCategory() {
+		return Category;
 	}
-	public void setVechileId(String vechileId) {
-		VechileId = vechileId;
+	public void setCategory(String vechileId) {
+		Category = vechileId;
 	}
 
 	public String getAmount() {

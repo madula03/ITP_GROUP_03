@@ -63,23 +63,18 @@
 						<div class="card-body text-center">
 							<div>
 								<nav class='animated bounceInDown'>
-								<ul>
-									<li class='sub-menu'><a href='#'>IncomeStatement
-											<div class='fa fa-caret-down right'></div>
-									</a>
 										<ul>
-											<li><a href="Insert_income_statement.jsp">Calculate
-													IncomeStatement</a></li>
-											<li><a href="View_IncomeStatement.jsp">View
-													IncomeStatement</a></li>
+		
+											<li class='sub-menu'><a href='#'>IncomeStatement For the month<div class='fa fa-caret-down right'></div></a>
+												<ul>
+													<li><a href="Insert_income_statement.jsp">Calculate	IncomeStatement</a></li>
+													<li><a href="View_IncomeStatement.jsp">View	IncomeStatement</a></li>
+												</ul>
+											<li class='sub-menu'><a href='Add_IS_for_the_year.jsp'>IncomeStatement For the year <div class='fa fa-caret-down right'></div></a>	
+											<li class='sub-menu'><a href='Insert_Rates.jsp'>Rates <div class='fa fa-caret-down right'></div></a>
+											<li class='sub-menu'><a href='#'>Report	<div class='fa fa-caret-down right'></div></a>
 										</ul>
-									<li class='sub-menu'><a href='Insert_Rates.jsp'>Rates
-											<div class='fa fa-caret-down right'></div>
-									</a>
-									<li class='sub-menu'><a href='#'>Report
-											<div class='fa fa-caret-down right'></div>
-									</a>
-								</ul>
+
 								</nav>
 							</div>
 						</div>

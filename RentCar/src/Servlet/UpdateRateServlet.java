@@ -51,7 +51,7 @@ public class UpdateRateServlet extends HttpServlet {
 		
 		rates.setRateId(RateId);
 
-		rates.setVechileId(request.getParameter("VechileId"));
+		rates.setCategory(request.getParameter("VechileId"));
 		rates.setAmount(request.getParameter("Amount"));
 
 		IRateService iratesService = new RateServiceimpl();

@@ -1,5 +1,5 @@
-<%@page import="service.RateServiceimpl"%>
-<%@page import="service.IRateService"%>
+<%@page import="service.IS_for_the_year"%>
+<%@page import="service.IS_for_the_year"%>
 <%@page import="Model.IncomeStatement"%>
 <%@page import="java.util.ArrayList"%>
 
@@ -40,28 +40,12 @@
 </head>
 
 <body>
+	<%
+		String date = (String) request.getParameter("date");
 
+	IS_for_the_year getIncomeStatement = new IS_for_the_year();
 
-
-<script>
-
-var i='${value}';
-
- if(i=='date added')
-	{
-	alert('table was inserted  succesfully');
-	
-	
-	}
- </script>
-
-
-<%
-	String date =request.getParameter("date");
-
-	GetIncomeStatement getIncomeStatementservlet = new GetIncomeStatement();
-
-	IncomeStatement IS = getIncomeStatementservlet.get_values_of_IncomeStatement(date);
+	IncomeStatement IS = getIncomeStatement.get_values_of_IncomeStatement_ForTheYear(date);
 	if (IS == null) {
 		out.println("<script type=\"text/javascript\">");
 		out.println("alert('This date dosent exisit');");
@@ -113,18 +97,26 @@ var i='${value}';
 						<div class="card-body text-center">
 
 							<div>
-									<nav class='animated bounceInDown'>
+								<nav class='animated bounceInDown'>
+								<ul>
+
+									<li class='sub-menu'><a href='#'>IncomeStatement
+											<div class='fa fa-caret-down right'></div>
+									</a>
 										<ul>
-		
-											<li class='sub-menu'><a href='#'>IncomeStatement For the month<div class='fa fa-caret-down right'></div></a>
-												<ul>
-													<li><a href="Insert_income_statement.jsp">Calculate	IncomeStatement</a></li>
-													<li><a href="View_IncomeStatement.jsp">View	IncomeStatement</a></li>
-												</ul>
-											<li class='sub-menu'><a href='Add_IS_for_the_year.jsp'>IncomeStatement For the year <div class='fa fa-caret-down right'></div></a>	
-											<li class='sub-menu'><a href='Insert_Rates.jsp'>Rates <div class='fa fa-caret-down right'></div></a>
-											<li class='sub-menu'><a href='#'>Report	<div class='fa fa-caret-down right'></div></a>
+											<li><a href="Insert_income_statement.jsp">Calculate
+													IncomeStatement</a></li>
+											<li><a href="View_IncomeStatement.jsp">View
+													IncomeStatement</a></li>
 										</ul>
+									<li class='sub-menu'><a href='Insert_Rates.jsp'>Rates
+											<div class='fa fa-caret-down right'></div>
+									</a>
+								</ul>
+
+
+
+
 
 								</nav>
 
@@ -142,7 +134,7 @@ var i='${value}';
 			<div class="col-md-8 col-xl-9">
 				<div class="card" style="height: 1000px;">
 					<div class="card-header">
-						<h5 class="card-title mb-0">INCOME_STATEMENT</h5>
+						<h5 class="card-title mb-0">INCOME_STATEMENT FOR THE YEAR ENDED</h5>
 						<div class="card-body h-100"></div>
 					</div>
 
@@ -295,26 +287,24 @@ var i='${value}';
 
 
 
-						
+						<tr>
+							<td bgcolor="#8080ff">budjet</td>
+							<td></td>
+							<td id="td1"><%=IS.getBudget()%></td>
+
+						</tr>
 
 					</table>
 
 
-					<a href="View_IncomeStatement.jsp"><button
-							style="margin-left: 600px; margin-top: 100px; width: 100px; background-color: #8080ff;"class="btn btn-success ">
-							<span style="color: white;">CORRECT</span>
+					<a href="Add_IS_for_the_year.jsp"><button class="btn btn-success "
+							style="margin-left: 600px; margin-top: 100px; width: 100px; background-color: #8080ff;">
+							<span style="color: white;">OK</span>
 						</button></a>
-						
-						
-						
-					<form action="DeleteIncomeStatementMonthServlet"  method="post">	
-						<input type="hidden"  name="date" value="<%=date%>">
-						<input type="submit" value="IN CORRECT"	style="margin-left:450px; margin-top: -35px; width: 120px; background-color: #8080ff;"class="btn btn-success ">
-					</form>
-						
-						
 
 
+									<a href="finalreport_IS.jsp?date=<%=IS.getDate()%>"><button
+									style="background-color: #8080ff; margin-left:400px;margin-top:-34px;"class="btn btn-success ">GENERATE REPORT</button></a>
 
 
 

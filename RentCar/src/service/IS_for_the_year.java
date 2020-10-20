@@ -1,14 +1,93 @@
 package service;
 
+import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 import Model.IncomeStatement;
 import util.DBConnectionUtil;
 
 public class IS_for_the_year {
+	
+	
+	private PreparedStatement preparedStatement;
 
+	private static Connection connection;
+	private ResultSet resultset;
+	Statement statement;
+	
+	
+	
+	public void Insert_IS_ForYearEnded(IncomeStatement IS) {
+
+		try {
+			String sql = "insert into IncomeStatement_for_the_year(year,Salary,maintance,electricity,rent_expenses,other_expenses,Rent_income,other_income,TOTAL_INCOME,TOTAL_Expense,profit_OR_loss,budget) values (?,?,?,?,?,?,?,?,?,?,?,?)";
+
+			connection = DBConnectionUtil.getDBConnection();
+
+			/*
+			 * Query is available in sql
+			 */
+			preparedStatement = connection.prepareStatement(sql);
+
+			preparedStatement.setString(1, IS.getDate());
+
+			preparedStatement.setFloat(2, IS.getSalary());
+			preparedStatement.setFloat(3, IS.getMaintance());
+			preparedStatement.setFloat(4, IS.getElectricity());
+			preparedStatement.setFloat(5, IS.getRent_expenses());
+			preparedStatement.setFloat(6, IS.getOther_expenses());
+			preparedStatement.setFloat(7, IS.getRent_income());
+			preparedStatement.setFloat(8, IS.getOther_income());
+
+			preparedStatement.setFloat(9, IS.getTOTAL_INCOME());
+
+			preparedStatement.setFloat(10, IS.getTOTAL_Expense());
+
+			preparedStatement.setFloat(11, IS.getProfit_loss());
+
+			preparedStatement.setFloat(12, IS.getBudget());
+
+			preparedStatement.execute();
+			connection.commit();
+
+		} catch (Exception e) {
+
+			System.out.println(e);
+		} finally {
+			/*
+			 * Close prepared statement and database connectivity at the end of transaction
+			 */
+			try {
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+
+			}
+		}
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//RETREIVE INCOME STATEMENT VALUES TO CALCULATE INCOME STATEMENT FOR THE YEAR ENDED
 	public IncomeStatement get_values_of_IncomeStatement_for_the_year(String date) {
 
 		IncomeStatement IS = new IncomeStatement();
@@ -64,5 +143,157 @@ public class IS_for_the_year {
 		}
 
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// Retrieve income statement Details from income statement year table
+		public ArrayList<IncomeStatement> get_IncomeStatement_forTheYear_details() {
+
+			connection = DBConnectionUtil.getDBConnection();
+
+			preparedStatement = null;
+
+			ArrayList<IncomeStatement> arraylist = new ArrayList<>();
+
+			try {
+
+				String sql = "select* from IncomeStatement_for_the_year";
+				preparedStatement = connection.prepareStatement(sql);
+				resultset = preparedStatement.executeQuery();
+
+				while (resultset.next()) {
+
+					IncomeStatement IS = new IncomeStatement();
+
+					IS.setDate(resultset.getString("year"));
+					IS.setTOTAL_INCOME(resultset.getFloat("TOTAL_INCOME"));
+					IS.setTOTAL_Expense(resultset.getFloat("TOTAL_Expense"));
+					IS.setProfit_loss(resultset.getFloat("profit_OR_loss"));
+
+					arraylist.add(IS);
+
+				}
+
+			} catch (Exception e) {
+
+				System.out.println(e);
+			} finally {
+				/*
+				 * Close prepared statement and database connectivity at the end of transaction
+				 */
+				try {
+					if (preparedStatement != null) {
+						preparedStatement.close();
+					}
+					if (connection != null) {
+						connection.close();
+					}
+				} catch (SQLException e) {
+
+				}
+			}
+
+			return arraylist;
+
+		}
+
+	
+	
+	
+	
+	
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		public IncomeStatement get_values_of_IncomeStatement_ForTheYear(String year) {
+
+			IncomeStatement IS = new IncomeStatement();
+			DBConnectionUtil dbConnectionUtil = new DBConnectionUtil();
+			@SuppressWarnings("static-access")
+			Connection connection = dbConnectionUtil.getDBConnection();
+
+			PreparedStatement preparedstatement = null;
+			ResultSet resultset = null;
+
+			String date1 = year;
+
+			try {
+
+				String sql = "select * from IncomeStatement_for_the_year where year =?";
+				
+			
+				preparedstatement = connection.prepareStatement(sql);
+				preparedstatement.setString(1, year);
+				resultset = preparedstatement.executeQuery();
+
+				while (resultset.next()) {
+
+					IS.setDate(resultset.getString("year"));
+
+					IS.setSalary(resultset.getFloat("Salary"));
+					IS.setMaintance(resultset.getInt("maintance"));
+					IS.setElectricity(resultset.getInt("electricity"));
+					IS.setRent_expenses(resultset.getInt("rent_expenses"));
+					IS.setOther_expenses(resultset.getInt("other_expenses"));
+
+					IS.setRent_income(resultset.getInt("Rent_income"));
+					IS.setOther_income(resultset.getInt("other_income"));
+
+					IS.setTOTAL_INCOME(resultset.getInt("TOTAL_INCOME"));
+					IS.setTOTAL_Expense(resultset.getInt("TOTAL_Expense"));
+
+					IS.setProfit_loss(resultset.getInt("profit_OR_loss"));
+					IS.setBudget(resultset.getInt("budget"));
+
+				}
+
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			if (IS.getDate() == null) {
+
+				return null;
+			} else {
+				return IS;
+			}
+
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }// final bracket

@@ -134,7 +134,7 @@
 			<div class="col-md-8 col-xl-9">
 				<div class="card" style="height: 1000px;">
 					<div class="card-header">
-						<h5 class="card-title mb-0">INCOME_STATEMENT</h5>
+						<h5 class="card-title mb-0">INCOME_STATEMENT FOR THE MONTH ENDED/h5>
 						<div class="card-body h-100"></div>
 					</div>
 

@@ -28,7 +28,7 @@
 
 <link rel="stylesheet" type="text/css" href=" CSS/ADMIN_PAGE.css">
 <link rel="stylesheet" type="text/css" href=" CSS/insert_IS.css">
-
+ 
 
 <title>MYEvent</title>
 
@@ -86,28 +86,17 @@
 
 							<div>
 								<nav class='animated bounceInDown'>
-								<ul>
-
-									<li class='sub-menu'><a href='#'>IncomeStatement
-											<div class='fa fa-caret-down right'></div>
-									</a>
 										<ul>
-											<li><a href="Insert_income_statement.jsp">Calculate
-													IncomeStatement</a></li>
-											<li><a href="View_IncomeStatement.jsp">View
-													IncomeStatement</a></li>
+		
+											<li class='sub-menu'><a href='#'>IncomeStatement For the month<div class='fa fa-caret-down right'></div></a>
+												<ul>
+													<li><a href="Insert_income_statement.jsp">Calculate	IncomeStatement</a></li>
+													<li><a href="View_IncomeStatement.jsp">View	IncomeStatement</a></li>
+												</ul>
+											<li class='sub-menu'><a href='Add_IS_for_the_year.jsp'>IncomeStatement For the year <div class='fa fa-caret-down right'></div></a>	
+											<li class='sub-menu'><a href='Insert_Rates.jsp'>Rates <div class='fa fa-caret-down right'></div></a>
+											<li class='sub-menu'><a href='#'>Report	<div class='fa fa-caret-down right'></div></a>
 										</ul>
-									<li class='sub-menu'><a href='Insert_Rates.jsp'>Rates
-											<div class='fa fa-caret-down right'></div>
-									</a>
-									<li class='sub-menu'><a href='#'>Report
-											<div class='fa fa-caret-down right'></div>
-									</a>
-								</ul>
-
-
-
-
 
 								</nav>
 
@@ -137,6 +126,28 @@
 
 
 <script>
+
+var i='${value}';
+
+ if(i=='date exists'){
+	
+	alert('table not added');
+	window.location.href="Insert_income_statement.jsp";
+	
+ }else if(i=='one month'){
+	
+	 alert('only 1 month can be entered in a year');
+	window.location.href="Insert_income_statement.jsp";
+	
+	
+ }else if(i=='12 month'){
+	
+	 alert('only 12 month can be entered in a year');
+	window.location.href="Insert_income_statement.jsp";
+
+ } 
+
+
 var count = 0;
 
 function  myFunction(){
@@ -190,7 +201,7 @@ function finalSubmit() {
 
 
 
-						<form method="post" action="AddExpenseServlet">
+						<form method="post" action="AddIncomeStatementServlet">
 							<p id="date" style="margin-top: 60px;">
 								Enter the date<input type="date" name="date" required>
 							</p>
@@ -237,12 +248,12 @@ function finalSubmit() {
 								<tr>
 									<td id="td1"><p id="p1">Electricity</p></td>
 									<td style="padding: 5px;"><input type="number"
-										name="electricity" style="margin-right: -50px;" required></td>
+										name="electricity" style="margin-right: -50px;"  min="0"  step="any" required></td>
 								</tr>
 
 								<tr>
 									<td id="td1"><p id="p1">Rent expenses</p></td>
-									<td style="padding: 5px;"><input type="number"	name="rent_expenses" style="margin-right: -50px;" required></td>
+									<td style="padding: 5px;"><input type="number"	name="rent_expenses" style="margin-right: -50px;"  min="0"  step="any"  required></td>
 								</tr>
 
 								<tr>

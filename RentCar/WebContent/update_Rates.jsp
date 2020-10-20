@@ -146,7 +146,7 @@
 							value="<%=rate.getRateId()%>"> <br> <label>category</label>
 						<input class="form-control" id="exampleInputPassword1"
 							placeholder="Event cost" name="VechileId"
-							value="<%=rate.getVechileId()%>"><br> <label>amount</label>
+							value="<%=rate.getCategory()%>"><br> <label>amount</label>
 						<input type="text" class="form-control" id="exampleInputPassword1"
 							placeholder="Event cost" name="Amount"
 							value="<%=rate.getAmount()%>"><br> <input

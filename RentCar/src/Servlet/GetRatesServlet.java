@@ -80,7 +80,7 @@ public class GetRatesServlet extends HttpServlet {
 						
 			rate.setRateId(resultset.getString("RateId"));
 						
-			rate.setVechileId(resultset.getString("category"));
+			rate.setCategory(resultset.getString("category"));
 			
 			rate.setAmount(resultset.getString("Amount"));
 				

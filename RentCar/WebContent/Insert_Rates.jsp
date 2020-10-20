@@ -1,3 +1,5 @@
+
+
 <%@page import="service.RateServiceimpl"%>
 <%@page import="service.IRateService"%>
 <%@page import="Model.Rates"%>
@@ -72,30 +74,18 @@
 						<div class="card-body text-center">
 
 							<div>
-								<nav class='animated bounceInDown'>
-								<ul>
-
-									<li class='sub-menu'><a href='#'>IncomeStatement
-											<div class='fa fa-caret-down right'></div>
-									</a>
+							<nav class='animated bounceInDown'>
 										<ul>
-											<li><a href="Insert_income_statement.jsp">Calculate
-													IncomeStatement</a></li>
-											<li><a href="View_IncomeStatement.jsp">View
-													IncomeStatement</a></li>
+		
+											<li class='sub-menu'><a href='#'>IncomeStatement For the month<div class='fa fa-caret-down right'></div></a>
+												<ul>
+													<li><a href="Insert_income_statement.jsp">Calculate	IncomeStatement</a></li>
+													<li><a href="View_IncomeStatement.jsp">View	IncomeStatement</a></li>
+												</ul>
+											<li class='sub-menu'><a href='Add_IS_for_the_year.jsp'>IncomeStatement For the year <div class='fa fa-caret-down right'></div></a>	
+											<li class='sub-menu'><a href='Insert_Rates.jsp'>Rates <div class='fa fa-caret-down right'></div></a>
+											<li class='sub-menu'><a href='#'>Report	<div class='fa fa-caret-down right'></div></a>
 										</ul>
-									<li class='sub-menu'><a href='Insert_Rates.jsp'>Rates
-											<div class='fa fa-caret-down right'></div>
-											<li class='sub-menu'><a href='#'>Report
-													<div class='fa fa-caret-down right'></div>
-											</a>
-									</a>
-								</ul>
-
-
-
-
-
 
 								</nav>
 
@@ -145,7 +135,7 @@
 							<tr>
 
 								<td><%=rates.getRateId()%></td>
-								<td><%=rates.getVechileId()%></td>
+								<td><%=rates.getCategory()%></td>
 								<td><%=rates.getAmount()%></td>
 
 

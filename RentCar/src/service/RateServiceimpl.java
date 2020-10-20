@@ -32,7 +32,7 @@ public class RateServiceimpl implements IRateService {
 			 */
 			preparedStatement = connection.prepareStatement(sql);
 
-			preparedStatement.setString(1, rate.getVechileId());
+			preparedStatement.setString(1, rate.getCategory());
 
 			preparedStatement.setString(2, rate.getAmount());
 
@@ -80,7 +80,7 @@ public class RateServiceimpl implements IRateService {
 				Rates rates = new Rates();
 
 				rates.setRateId(resultset.getString("RateId"));
-				rates.setVechileId(resultset.getString("category"));
+				rates.setCategory(resultset.getString("category"));
 				rates.setAmount(resultset.getString("Amount"));
 
 				arraylist.add(rates);
@@ -120,7 +120,7 @@ public class RateServiceimpl implements IRateService {
 
 			preparedStatement = connection.prepareStatement(sql);
 
-			preparedStatement.setString(1, rates.getVechileId());
+			preparedStatement.setString(1, rates.getCategory());
 			preparedStatement.setString(2, rates.getAmount());
 
 			preparedStatement.setString(3, rates.getRateId());
