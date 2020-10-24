@@ -69,7 +69,6 @@ public class AdminGetCustomerServlet extends HttpServlet {
 	Customer customer = new Customer();
 	
 	
-	
 	try {
 		
 	
@@ -89,11 +88,6 @@ public class AdminGetCustomerServlet extends HttpServlet {
 			
 			
 			customer.setNIC(resultset.getString("NIC"));
-
-			customer.setLicenseNum(resultset.getString("LicenseNum"));
-
-
-			customer.setLicenseEndDate(resultset.getString("LicenseEndDate"));
 
 
 			customer.setAddress(resultset.getString("Address"));

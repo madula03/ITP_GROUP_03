@@ -82,7 +82,9 @@ public class InquiryImp implements I_Inquiry {
 			while (resultset.next()) {
 
 				Inquiry inquiry = new Inquiry();
-				inquiry.setInquiryID(resultset.getInt("InquiryID"));
+				
+				inquiry.setInquiryID(resultset.getInt("inquiryID"));
+				inquiry.setDate(resultset.getString("date"));
 				inquiry.setName(resultset.getString("Name"));
 				inquiry.setBooking(resultset.getString("Booking"));
 				inquiry.setEmail(resultset.getString("Email"));
@@ -117,7 +119,36 @@ public class InquiryImp implements I_Inquiry {
 
 	}
 
-	
+	public void removeInquiry(int inquiryID) {
+		try {
+			connection = DBConnectionUtil.getDBConnection();
+
+			String sql = "Delete   from inquiry where inquiryID=?";
+			PreparedStatement preparedstatement = connection.prepareStatement(sql);
+
+			preparedstatement.setInt(1, inquiryID);
+			preparedstatement.execute();
+
+		} catch (Exception e) {
+
+			System.out.println(e);
+		} finally {
+			/*
+			 * Close prepared statement and database connectivity at the end of transaction
+			 */
+			try {
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+
+			}
+		}
+
+	}
 	
 
 }

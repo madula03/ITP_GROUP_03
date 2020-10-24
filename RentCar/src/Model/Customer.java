@@ -3,14 +3,21 @@ package Model;
 
 	public class Customer {
 		
+		private String Date;
 		private String FirstName;
 		private String LastName;
 		private String NIC;
-		private String LicenseNum;
-		private String LicenseEndDate;
 		private String Address;
 		private String Phone;
 		private String Email;
+		
+		
+		public String getDate() {
+			return Date;
+		}
+		public void setDate(String date) {
+			Date = date;
+		}
 		public String getFirstName() {
 			return FirstName;
 		}
@@ -28,18 +35,6 @@ package Model;
 		}
 		public void setNIC(String nIC) {
 			NIC = nIC;
-		}
-		public String getLicenseNum() {
-			return LicenseNum;
-		}
-		public void setLicenseNum(String licenseNum) {
-			LicenseNum = licenseNum;
-		}
-		public String getLicenseEndDate() {
-			return LicenseEndDate;
-		}
-		public void setLicenseEndDate(String licenseEndDate) {
-			LicenseEndDate = licenseEndDate;
 		}
 		public String getAddress() {
 			return Address;
@@ -59,14 +54,12 @@ package Model;
 		public void setEmail(String email) {
 			Email = email;
 		}
+		
 		@Override
 		public String toString() {
-			return "Customer [FirstName=" + FirstName + ", LastName=" + LastName + ", NIC=" + NIC + ", LicenseNum="
-					+ LicenseNum + ", LicenseEndDate=" + LicenseEndDate + ", Address=" + Address + ", Phone=" + Phone
-					+ ", Email=" + Email + "]";
+			return "Customer [Date=" + Date + ", FirstName=" + FirstName + ", LastName=" + LastName + ", NIC=" + NIC
+					+ ", Address=" + Address + ", Phone=" + Phone + ", Email=" + Email + "]";
 		}
-		
-		
 		
 		
 		

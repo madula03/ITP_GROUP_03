@@ -8,20 +8,9 @@
 <%@page import="com.itextpdf.text.Document"%>
 
 
-
-
-
-
-
-<%@page import="com.itextpdf.text.pdf.PdfWriter"%>
-<%@page import="com.itextpdf.text.Image"%>
-<%@page import="com.itextpdf.text.pdf.PdfPTable"%>
-<%@page import="com.itextpdf.text.Font"%>
-<%@page import="com.itextpdf.text.Phrase"%>
 <%@page import="com.itextpdf.text.Element"%>
 <%@page import="com.itextpdf.text.Paragraph"%>
 <%@page import="com.itextpdf.text.Document"%>
-
 
 
 <%@page import="java.beans.Statement"%>
@@ -32,12 +21,10 @@
 <%@page import="java.util.ArrayList"%>
 
 
-<%@page import="Model.IncomeStatement"%>
+
+<%@page import="Model.Inquiry"%>
 <%@page import="util.DBConnectionUtil"%>
 <%@page import="com.itextpdf.text.pdf.PdfPCell"%>
-
-
-
 
 
 
@@ -55,115 +42,119 @@
 <%
 
 
-
-
-
-
 	response.setContentType("application/pdf");
 	Document document = new Document();
 	PdfWriter writer = PdfWriter.getInstance(document, response.getOutputStream());
 
 	document.open();
 	
+	//String date1=request.getParameter("NIC");
+	
+	String Date="10";
 	
 	Paragraph p = new Paragraph();
-	p.add("ahmed11");
+	Paragraph p33 = new Paragraph();
+	p.add("Inquiry Report for the Month  "+Date);
 	p.setAlignment(Element.ALIGN_CENTER);
+	p33.add("       ");
+	p33.setAlignment(Element.ALIGN_CENTER);
 	document.add(p);
+	document.add(p33);
 	
-	
-	
-	
-	
-	
-	////////
-	
-	
-	Paragraph p3,p4 =null;
 	
 	PreparedStatement preparedStatement;
 	Connection connection;
 	ResultSet resultset;
 	Statement statement;
-
 	connection = DBConnectionUtil.getDBConnection();
 	preparedStatement = null;
-	ArrayList<IncomeStatement> arraylist = new ArrayList<>();
+	ArrayList<Inquiry> arraylist = new ArrayList<>();
 
 	
-	String date="2020-05-23";
-	String sql = "select* from IncomeStatement where date1=?";
+	
+	String sql = "select* from inquiry where date LIKE ?";
 	preparedStatement = connection.prepareStatement(sql);
-	preparedStatement.setString(1,date);
+	preparedStatement.setString(1,"_____"+Date+"%");
 	resultset = preparedStatement.executeQuery();
+	
+	
+	Font f = new Font();
+	f.setStyle(Font.BOLD);
+	f.setSize(8);
 
 	
+	PdfPTable table1 =new PdfPTable(5);
 	
+	table1.setWidthPercentage(100);
+	 // Code 2
 	
+	Font boldFont = new Font(Font.FontFamily.TIMES_ROMAN, 15, Font.BOLD);
 	
+	PdfPCell c1 =new PdfPCell(new Phrase("Name",boldFont));
+	table1.addCell(c1);
+	PdfPCell c2 =new PdfPCell(new Phrase("Booking",boldFont));
+	table1.addCell(c2);
+	PdfPCell c3 =new PdfPCell(new Phrase("Email",boldFont));
+	table1.addCell(c3);
+	PdfPCell c4 =new PdfPCell(new Phrase("Problem",boldFont));
+	table1.addCell(c4);
+	PdfPCell c5 =new PdfPCell(new Phrase("Comment",boldFont));
+	table1.addCell(c5);
+	
+
+	document.add(table1);
 	while (resultset.next()) {
-				p3=new Paragraph();
-				p4=new Paragraph();
+
 		
-				p3.add(resultset.getString("date1"));
-				p4.add(""+(resultset.getFloat("TOTAL_INCOME")));
-				p4.setAlignment(Element.ALIGN_CENTER);
-				
-				//p4.setStyle(Font.BOLD);
-				
-				
-				//p3.add(resultset.getFloat("TOTAL_Expense"));
-				//p3.add(resultset.getFloat("profit_OR_loss"));
 
-				document.add(p3);
-				document.add(p4);
+		PdfPTable table =new PdfPTable(5);
+		table.setWidthPercentage(100);
+			
+		
+		table.addCell(""+(resultset.getString("Name")));
+		
+		
+		table.addCell(""+(resultset.getString("Booking")));
+		
+		
+		
+		table.addCell(""+(resultset.getString("Email")));
+		
+				
+		
+		table.addCell(""+(resultset.getString("Problem")));
+		
+		
+		
+		table.addCell(""+(resultset.getString("Comment")));
+		
+		
+		
+		
+		
+		
+		document.add(table);
+		
+		
+		
+	}
+	
+	
 
-				
-				PdfPTable table =new PdfPTable(3);
-				PdfPCell c1 =new PdfPCell(new Phrase("aaaaaaa"));
-				table.addCell(c1);
-				
-				c1 =new PdfPCell(new Phrase(resultset.getString("date1")));
-				table.addCell(c1);
-				
-				 c1 =new PdfPCell(new Phrase("ccccccc"));
-				table.addCell(c1);
-				
-				table.setHeaderRows(1);
-				
-				table.addCell("1111");
-				table.addCell("   ");
-				table.addCell("1111");
-				
-				table.addCell("2221212");
-				table.addCell("3333");
-				table.addCell((""+(resultset.getFloat("TOTAL_INCOME"))));
-				
-				document.add(table);
-				
-				
-				
-			}
-	
-	
-	////
-	
-	
-	////table
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	document.close();
 	
 %>
+
+
+
+
+
+
+
+
+
+
 
 
 </body>

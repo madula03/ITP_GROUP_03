@@ -3,19 +3,25 @@ package Model;
 
 	public class Inquiry {
 		
-		private int InquiryID;
+		private int inquiryID;
+		private String Date;
 		private String Name;
 		private String Booking;
 		private String Email;
 		private String Problem;
 		private String Comment;
 		
-		
 		public int getInquiryID() {
-			return InquiryID;
+			return inquiryID;
 		}
 		public void setInquiryID(int inquiryID) {
-			InquiryID = inquiryID;
+			this.inquiryID = inquiryID;
+		}
+		public String getDate() {
+			return Date;
+		}
+		public void setDate(String date) {
+			Date = date;
 		}
 		public String getName() {
 			return Name;
@@ -47,11 +53,12 @@ package Model;
 		public void setComment(String comment) {
 			Comment = comment;
 		}
-		@Override
-		public String toString() {
-			return "Inquiry [InquiryID=" + InquiryID + ", Name=" + Name + ", Booking=" + Booking + ", Email=" + Email
-					+ ", Problem=" + Problem + ", Comment=" + Comment + "]";
-		}
+		
+		
+		
+		
+		
+		
 		
 		
 		

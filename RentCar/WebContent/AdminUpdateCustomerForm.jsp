@@ -178,6 +178,54 @@ th {
 	background-color: #133f75;
 	color: white;
 }
+
+input[type=text], select {
+	width: 80%;
+	padding: 12px 20px;
+	margin: 5px 50px 20px 40px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+input[type=email], select {
+	width: 80%;
+	padding: 12px 20px;
+	margin: 5px 50px 20px 40px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+input[type=tel], select {
+	width: 80%;
+	padding: 12px 20px;
+	margin: 5px 50px 20px 40px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+.Update {
+	width: 60%;
+	padding: 14px 20px;
+	margin: 5px 50px 8px 100px;
+	border: 2px solid #000000;
+	border-radius: 4px;
+	background-color: #2edaff;
+	color: #000000;
+}
+
+label {
+	padding: 10px;
+	font-weight: bold;
+}
+
+h2{
+	text-align: center;
+}
+
 </style>
 </head>
 
@@ -233,13 +281,11 @@ th {
 										<ul>
 											<li><a href="AdminViewCustomer.jsp">Current Customer
 													Details</a></li>
-											<li><a href="AdminUpdateCustomer.jsp">Update/Delete
-													Customers</a></li>
+											
 											<li><a href="AddPastCustomer.jsp">Past Customer
 													Details</a></li>
 										</ul>
 									<li><a href="#">Reports</a></li>
-									<li><a href="#">Mail</a></li>
 
 
 								</ul>
@@ -264,7 +310,7 @@ th {
 			<div class="col-md-8 col-xl-9">
 				<div class="card" style="height: 800px;">
 					<div class="card-header">
-						<h5 class="card-title mb-0">Rates</h5>
+						<h5 class="card-title mb-0">Updates</h5>
 						<div class="card-body h-100"></div>
 					</div>
 
@@ -286,27 +332,29 @@ Customer customer = admingetcustomerservlet.get_Customer_details(NIC);
 					<form action="AdminUpdateServlet?NIC=<%=customer.getNIC()%>"
 						method="post">
 
-						<h1>Customer Details</h1>
+						<h2>Changes in Customer Details</h2>
 
 
 
 
-						<label for="lno">License Number</label> <br> <input
-							type="text" name="LicenseNum"
-							value="<%=customer.getLicenseNum()%>"> <br> <label
-							for="end date">License End Date</label> <br> <input
-							type="date" name="LicenseEndDate"
-							value="<%=customer.getLicenseEndDate()%>"> <br> <label
-							for="address">Address</label> <br> <input type="text"
-							name="Address" value="<%=customer.getAddress()%>"><br>
+						 <label for="address">Address</label> 
+						 <br> 
+						 <input type="text" name="Address" value="<%=customer.getAddress()%>">
+						 <br>
 
 
-						<label for="phone">Contact Number</label> <br> <input
-							type="tel" name="Phone" value="<%=customer.getPhone()%>">
-						<br> <label for="email">E-mail</label> <br> <input
-							type="email" id="email" name="Email"
-							value="<%=customer.getEmail()%>"> <br> <br> <input
-							class="Update" type="submit" value="Update" name="Update">
+						<label for="phone">Contact Number</label> 
+						<br> 
+						<input type="tel" name="Phone" value="<%=customer.getPhone()%>">
+						<br> 
+						
+						<label for="email">E-mail</label> 
+						<br> 
+						<input type="email" id="email" name="Email" value="<%=customer.getEmail()%>"> 
+						<br> <br> 
+						
+						<input class="Update" type="submit" value="Update" name="Update">
+						
 					</form>
 				</div>
 

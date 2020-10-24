@@ -84,6 +84,7 @@ public class GetInquiryDetails extends HttpServlet {
 		{
 			inquiry.setInquiryID(resultset.getInt("InquiryID"));
 			
+			
 			inquiry.setName(resultset.getString("Name"));
 				
 			

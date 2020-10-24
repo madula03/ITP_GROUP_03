@@ -9,6 +9,6 @@ public interface I_Inquiry {
 	
 	
 	public ArrayList<Inquiry> get_Inquiry_details();
-	
+	public void removeInquiry(int inquiryID);
 
 }

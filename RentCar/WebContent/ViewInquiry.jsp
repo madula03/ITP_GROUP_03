@@ -38,6 +38,7 @@
 <style>
 body {
 	margin-top: 20px;
+	background-color: #ffffff;
 }
 
 .card {
@@ -53,7 +54,7 @@ body {
 	flex-direction: column;
 	min-width: 0;
 	word-wrap: break-word;
-	background-color: #fff;
+	background-color: #e5e5e5;
 	background-clip: border-box;
 	border: 1px solid #e5e9f2;
 	border-radius: .2rem;
@@ -70,8 +71,8 @@ body {
 .card-header {
 	padding: .75rem 1.25rem;
 	margin-bottom: 0;
-	color: inherit;
-	background-color: #fff;
+	color: white;
+	background-color: #808080;
 	border-bottom: 1px solid #e5e9f2;
 }
 
@@ -106,7 +107,7 @@ nav ul li {
 
 nav ul li a {
 	display: block;
-	background: #ebebeb;
+	background: #ffffff;
 	padding: 10px 15px;
 	color: #333;
 	text-decoration: none;
@@ -118,7 +119,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-	background: #f8f8f8;
+	background: #808080;
 	color: #515151;
 }
 
@@ -134,13 +135,13 @@ nav ul ul {
 }
 
 nav ul li ul li a {
-	background: #f8f8f8;
+	background: #ffffff;
 	border-left: 4px solid transparent;
 	padding: 10px 20px;
 }
 
 nav ul li ul li a:hover {
-	background: #ebebeb;
+	background: #ffffff;
 	border-left: 4px solid #3498db;
 }
 
@@ -160,6 +161,27 @@ th {
 	background-color: #133f75;
 	color: white;
 }
+
+button {
+	background-color: #133f75;
+	color: white;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td {
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2
+}
+
+
 </style>
 <body>
 	<div class="container">
@@ -205,7 +227,9 @@ th {
 										</a>
 											<ul>
 												<li><a href="ViewInquiry.jsp">Inquiries</a></li>
+												
 											</ul>
+											<li><a href="InqReport.jsp">Reports</a></li>
 									</ul>
 
 
@@ -226,7 +250,7 @@ th {
 				</div>
 			</div>
 			<div class="col-md-8 col-xl-9">
-				<div class="card" style="height: 1000px;">
+				<div class="card" style="height: 1000px; width: 900px;">
 					<div class="card-header">
 						<h5 class="card-title mb-0">Inquiry Details</h5>
 						<div class="card-body h-100"></div>
@@ -241,11 +265,13 @@ th {
 						<thead>
 							<tr>
 								<th>InquiryID</th>
+								<th>Date</th>
 								<th>Name</th>
 								<th>Booking</th>
 								<th>Email</th>
 								<th>Problem</th>
 								<th>Comment</th>
+								<th></th>
 							</tr>
 
 
@@ -267,14 +293,17 @@ th {
 						<tbody>
 							<tr>
 								<td><%=inquiry.getInquiryID() %></td>
+								<td><%=inquiry.getDate() %></td>
 								<td><%=inquiry.getName() %></td>
 								<td><%=inquiry.getBooking() %></td>
 								<td><%=inquiry.getEmail() %></td>
 								<td><%=inquiry.getProblem() %></td>
 								<td><%=inquiry.getComment() %></td>
 
-
-
+								<td><form method="POST"
+										action="DeleteInquiry?inquiryID=<%=inquiry.getInquiryID()%>">
+										<button>Delete</button>
+									</form></td>
 
 							</tr>
 						</tbody>

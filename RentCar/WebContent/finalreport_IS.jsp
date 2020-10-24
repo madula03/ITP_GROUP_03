@@ -1,6 +1,3 @@
-
-
-
 <%@page import="com.itextpdf.text.pdf.PdfWriter"%>
 <%@page import="com.itextpdf.text.Image"%>
 <%@page import="com.itextpdf.text.pdf.PdfPTable"%>
@@ -9,7 +6,6 @@
 <%@page import="com.itextpdf.text.Element"%>
 <%@page import="com.itextpdf.text.Paragraph"%>
 <%@page import="com.itextpdf.text.Document"%>
-
 
 
 

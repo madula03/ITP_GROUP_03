@@ -24,7 +24,7 @@ public class CustomerImp implements ICustomer {
 
 		try {
 
-			String sql = "insert into Customer(FirstName,LastName,NIC,LicenseNum,LicenseEndDate,Address,Phone,Email) values (?,?,?,?,?,?,?,?)";
+			String sql = "insert into Customer(FirstName,LastName,NIC,Address,Phone,Email) values (?,?,?,?,?,?)";
 
 			connection = DBConnectionUtil.getDBConnection();
 
@@ -36,11 +36,9 @@ public class CustomerImp implements ICustomer {
 			preparedStatement.setString(1, customer.getFirstName());
 			preparedStatement.setString(2, customer.getLastName());
 			preparedStatement.setString(3, customer.getNIC());
-			preparedStatement.setString(4, customer.getLicenseNum());
-			preparedStatement.setString(5, customer.getLicenseEndDate());
-			preparedStatement.setString(6, customer.getAddress());
-			preparedStatement.setString(7, customer.getPhone());
-			preparedStatement.setString(8, customer.getEmail());
+			preparedStatement.setString(4, customer.getAddress());
+			preparedStatement.setString(5, customer.getPhone());
+			preparedStatement.setString(6, customer.getEmail());
 
 			preparedStatement.execute();
 			connection.commit();
@@ -85,11 +83,10 @@ public class CustomerImp implements ICustomer {
 
 				Customer customer = new Customer();
 
+				customer.setDate(resultset.getString("date"));
 				customer.setFirstName(resultset.getString("FirstName"));
 				customer.setLastName(resultset.getString("LastName"));
 				customer.setNIC(resultset.getString("NIC"));
-				customer.setLicenseNum(resultset.getString("LicenseNum"));
-				customer.setLicenseEndDate(resultset.getString("LicenseEndDate"));
 				customer.setAddress(resultset.getString("Address"));
 				customer.setPhone(resultset.getString("Phone"));
 				customer.setEmail(resultset.getString("Email"));
@@ -130,17 +127,17 @@ public class CustomerImp implements ICustomer {
 			System.out.println("lakshi" + customer.getNIC());
 
 		
-			String sql = "update Customer set LicenseEndDate =? , Address =?,  Phone =?, Email =?  where NIC=? ";
+			String sql = "update Customer set Address=?,  Phone=?, Email=? where NIC=?";
 
 			preparedStatement = connection.prepareStatement(sql);
+			
+			preparedStatement.setString(4, customer.getNIC());
 
-			preparedStatement.setString(1, customer.getLicenseEndDate());
-			preparedStatement.setString(2, customer.getAddress());
+			preparedStatement.setString(1, customer.getAddress());
 
-			preparedStatement.setString(3, customer.getPhone());
+			preparedStatement.setString(2, customer.getPhone());
 
-			preparedStatement.setString(4, customer.getEmail());
-			preparedStatement.setString(5, customer.getNIC());
+			preparedStatement.setString(3, customer.getEmail());
 
 			preparedStatement.executeUpdate();
 
@@ -194,6 +191,106 @@ public class CustomerImp implements ICustomer {
 
 			}
 		}
+
+	}
+	
+	//add past customer
+	
+	public void addpastCustomer(Customer customer) {
+
+		try {
+
+			String sql = "insert into PastCustomer(FirstName,LastName,NIC,Address,Phone,Email) values (?,?,?,?,?,?)";
+
+			connection = DBConnectionUtil.getDBConnection();
+
+			/*
+			 * Query is available in sql
+			 */
+			preparedStatement = connection.prepareStatement(sql);
+
+			preparedStatement.setString(1, customer.getFirstName());
+			preparedStatement.setString(2, customer.getLastName());
+			preparedStatement.setString(3, customer.getNIC());
+			preparedStatement.setString(4, customer.getAddress());
+			preparedStatement.setString(5, customer.getPhone());
+			preparedStatement.setString(6, customer.getEmail());
+
+			preparedStatement.execute();
+			connection.commit();
+
+		} catch (Exception e) {
+
+			System.out.println(e);
+		} finally {
+			/*
+			 * Close prepared statement and database connectivity at the end of transaction
+			 */
+			try {
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+
+			}
+		}
+	}
+		
+		///retrive past customer
+		public ArrayList<Customer> getpast_Customer_details() {
+
+			connection = DBConnectionUtil.getDBConnection();
+
+			preparedStatement = null;
+
+			ArrayList<Customer> arraylist = new ArrayList<>();
+
+			try {
+
+				String sql = "select* from PastCustomer";
+				preparedStatement = connection.prepareStatement(sql);
+				resultset = preparedStatement.executeQuery();
+
+				while (resultset.next()) {
+
+					Customer customer = new Customer();
+
+					customer.setDate(resultset.getString("date"));
+					customer.setFirstName(resultset.getString("FirstName"));
+					customer.setLastName(resultset.getString("LastName"));
+					customer.setNIC(resultset.getString("NIC"));
+					customer.setAddress(resultset.getString("Address"));
+					customer.setPhone(resultset.getString("Phone"));
+					customer.setEmail(resultset.getString("Email"));
+
+					arraylist.add(customer);
+
+				}
+
+			} catch (Exception e) {
+
+				System.out.println(e);
+			} finally {
+				/*
+				 * Close prepared statement and database connectivity at the end of transaction
+				 */
+				try {
+					if (preparedStatement != null) {
+						preparedStatement.close();
+					}
+					if (connection != null) {
+						connection.close();
+					}
+				} catch (SQLException e) {
+
+				}
+			}
+
+			return arraylist;
+
 
 	}
 

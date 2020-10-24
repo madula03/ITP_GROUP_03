@@ -115,28 +115,37 @@ label {
 	<div class="diform">
 		<form action="AddCustServlet" method="post" id="add">
 
-			<label for="fname">First Name</label> <br> <input type="text"
-				id="fname" name="FirstName" placeholder="fname" required> <br>
+			<label for="fname">First Name</label> 
+			<br> 
+			<input type="text" id="fname" name="FirstName" placeholder="fname" required> 
+			<br>
 
-			<label for="lname">Last Name</label> <br> <input type="text"
-				id="lname" name="LastName" placeholder="lname" required> <br>
+			<label for="lname">Last Name</label> 
+			<br> 
+			<input type="text" id="lname" name="LastName" placeholder="lname" required> 
+			<br>
 
-			<label for="NIC">NIC</label> <br> <input type="text" id="nic"
-				name="NIC" placeholder="0000000000" pattern="[0-9]{9}[vV]{1}"
-				required> <br> <label for="lno">License Number</label>
-			<br> <input type="text" id="lno" name="LicenseNum"
-				placeholder="License Number" required> <br> <label
-				for="end date">License End Date</label> <br> <input type="date"
-				id="end" name="LicenseEndDate" placeholder="Date" required>
-			<br> <label for="address">Address</label> <br> <input
-				type="text" id="addr" name="Address" placeholder="address" required>
-			<br> <label for="phone">Contact Number</label> <br> <input
-				type="tel" id="phone" name="Phone" placeholder="phone no"
-				pattern="[0-9]{3}[0-9]{7}" required> <br> <label
-				for="email">E-mail</label> <br> <input type="email" id="email"
-				name="Email" placeholder="email"
-				pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required> <br>
+			<label for="NIC">NIC</label> 
+			<br> 
+			<input type="text" id="nic" name="NIC" placeholder="0000000000" pattern="[0-9]{9}[vVxX]{1}||[0-9]{12}" required> 
+			<br> 
+			
+			
+			<label for="address">Address</label> 
+			<br> 
+			<input type="text" id="addr" name="Address" placeholder="address" required>
+			<br> 
+			
+			<label for="phone">Contact Number</label> 
+			<br> 
+			<input type="tel" id="phone" name="Phone" placeholder="phone no" pattern="[0-9]{3}[0-9]{7}" required> 
+			<br> 
+			
+			<label for="email">E-mail</label> <br> <input type="email" id="email" name="Email" placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required> 
+			<br>
+			
 			<br> <input type="submit" value="SUBMIT" name="Add">
+			
 		</form>
 	</div>
 

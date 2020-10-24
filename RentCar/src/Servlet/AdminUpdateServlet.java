@@ -15,11 +15,6 @@ import service.ICustomer;
 import service.CustomerImp;
 
 
-
-
-/**
- * servlet implementation class UpdateMaintenanceSevlet
- */
 @WebServlet("/AdminUpdateServlet")
 public class AdminUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -49,13 +44,7 @@ public class AdminUpdateServlet extends HttpServlet {
 		
 		String NIC = request.getParameter("NIC");
 		
-		customer.setFirstName(request.getParameter("FirstName"));
-		customer.setLastName(request.getParameter("LastName"));
 		customer.setNIC(request.getParameter("NIC"));
-		customer.setLicenseNum(request.getParameter("LicenseNum"));
-		
-		
-		customer.setLicenseEndDate(request.getParameter("LicenseEndDate"));
 		customer.setAddress(request.getParameter("Address"));
 		
 		customer.setPhone(request.getParameter("Phone"));

@@ -48,8 +48,6 @@ public class AddCustServlet extends HttpServlet {
 		customer.setFirstName(request.getParameter("FirstName"));
 		customer.setLastName(request.getParameter("LastName"));
 		customer.setNIC(request.getParameter("NIC"));
-		customer.setLicenseNum(request.getParameter("LicenseNum"));
-		customer.setLicenseEndDate(request.getParameter("LicenseEndDate"));
 		customer.setAddress(request.getParameter("Address"));
 		customer.setPhone(request.getParameter("Phone"));
 		customer.setEmail(request.getParameter("Email"));

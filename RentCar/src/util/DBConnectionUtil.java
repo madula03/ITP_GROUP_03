@@ -30,7 +30,7 @@ public class DBConnectionUtil {
 		
 			
 		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=rentacar","ahmed","ahmed");
+		connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=master","Lakshi","Lakshi");
 		
 		
 		

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Model.Customer;
 import service.ICustomer;
 import service.CustomerImp;
 
@@ -42,7 +43,23 @@ public class AdminDeleteCustomerServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
+		
+		Customer customer = new Customer();
+
+		customer.setFirstName(request.getParameter("FirstName"));
+		customer.setLastName(request.getParameter("LastName"));
+		customer.setNIC(request.getParameter("NIC"));
+		customer.setAddress(request.getParameter("Address"));
+		customer.setPhone(request.getParameter("Phone"));
+		customer.setEmail(request.getParameter("Email"));
+
+		ICustomer iCustomer = new CustomerImp();
+		iCustomer.addpastCustomer(customer);
+		
+		
+		
+		///delete
+		
 		String NIC =request.getParameter("NIC");	
 		
 		ICustomer icustomer = new CustomerImp();
