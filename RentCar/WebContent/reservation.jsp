@@ -15,7 +15,7 @@
 
 </head>
 <body
-	style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/backgroundreservation.jpg');">
+	style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/myyy.jpg');">
 
 	<form
 		action="${pageContext.request.contextPath }/ReservationController"
@@ -41,10 +41,7 @@
 						class="form-control select date" required>
 				</div>
 
-				<div class="input-grp">
-					<label>No Of Days</label> <input type="number" name="numofdays"
-						value="${reservation.numofdays}" class="form-control">
-				</div>
+				
 
 				<div class="input-grp">
 					<label>No Of Passengers</label> <input type="number"
@@ -77,6 +74,7 @@
                 $("#depart").datepicker({
                     showAnim: 'drop',
                     numberOfMonth: 1,
+                    minDate: 0,
                     dateFormat: 'dd-mm-yy',
                     onClose: function (selectedDate) {
                         $("#return").datepicker("option", "minDate", selectedDate);
