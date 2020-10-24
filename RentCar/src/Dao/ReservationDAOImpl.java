@@ -48,7 +48,7 @@ public class ReservationDAOImpl implements ReservationDAO {
 				reservation.setLocation(resultset.getString("location"));
 				reservation.setPickupdate(resultset.getString("pickupdate"));
 				reservation.setReturndate(resultset.getString("returndate"));
-				reservation.setNumofdays(resultset.getString("numofdays"));
+				
 				reservation.setNumofpassengers(resultset.getString("numofpassengers"));
 				list.add(reservation);
 
@@ -65,9 +65,9 @@ public class ReservationDAOImpl implements ReservationDAO {
 	public boolean save(Reservation r) {
 		boolean flag = false;
 		try {
-			String sql = "insert into Reservation(location,time1,pickupdate,returndate,numofdays,numofpassengers) values "
+			String sql = "insert into Reservation(location,time1,pickupdate,returndate,numofpassengers) values "
 					+ " ('" + r.getLocation() + "','" + r.getTime1() + "','" + r.getPickupdate() + "','"
-					+ r.getReturndate() + "','" + r.getNumofdays() + "','" + r.getNumofpassengers() + "')";
+					+ r.getReturndate() + "','" +  r.getNumofpassengers() + "')";
 			connection = DBConnectionUtil.getDBConnection();
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.executeUpdate();
@@ -96,7 +96,7 @@ public class ReservationDAOImpl implements ReservationDAO {
 				r.setTime1(resultset.getString("time1"));
 				r.setPickupdate(resultset.getString("pickupdate"));
 				r.setReturndate(resultset.getString("returndate"));
-				r.setNumofdays(resultset.getString("numofdays"));
+				
 				r.setNumofpassengers(resultset.getString("numofpassengers"));
 
 			}
@@ -112,7 +112,7 @@ public class ReservationDAOImpl implements ReservationDAO {
 	public boolean update(Reservation r) {
 		boolean flag = false;
 		try {  
-			String sql = "UPDATE Reservation set location='"+r.getLocation()+"',time1='"+r.getTime1()+"',pickupdate='"+r.getPickupdate()+"',returndate='"+r.getReturndate()+"',numofdays='"+r.getNumofdays()+"',numofpassengers='"+r.getNumofpassengers()+"'where rid="+r.getRid();       
+			String sql = "UPDATE Reservation set location='"+r.getLocation()+"',time1='"+r.getTime1()+"',pickupdate='"+r.getPickupdate()+"',returndate='"+r.getReturndate()+"',numofpassengers='"+r.getNumofpassengers()+"'where rid="+r.getRid();       
 			connection = DBConnectionUtil.getDBConnection();
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.executeUpdate();
