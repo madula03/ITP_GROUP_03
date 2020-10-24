@@ -8,10 +8,11 @@ public class Salary {
 	private String NIC;
 	
 	private float basSal;
-	private String attendnce;
+	private int attendnce;
 	private float EPF; 
 	private float ETF;
 	private float NetSal;
+	private String date;
 	
 	
 	
@@ -35,11 +36,11 @@ public class Salary {
 	public void setBasSal(float basSal) {
 		this.basSal = basSal;
 	}
-	public String getAttendnce() {
+	public int getAttendnce() {
 		return attendnce;
 	}
-	public void setAttendnce(String attendnce) {
-		this.attendnce = attendnce;
+	public void setAttendnce(int i) {
+		this.attendnce = i;
 	}
 	public float getEPF() {
 		return EPF;
@@ -58,6 +59,12 @@ public class Salary {
 	}
 	public void setNetSal(float netSal) {
 		NetSal = netSal;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
 	}
 	
 	
