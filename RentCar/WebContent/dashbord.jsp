@@ -39,8 +39,6 @@
 				<div class="card mb-3">
 					<div class="card-header">
 
-
-
 						<h5 class="card-title mb-0 text-center">User</h5>
 					</div>
 					<div class="card-body text-center">
@@ -74,16 +72,10 @@
 								<ul>
 									<li><a
 										href="${pageContext.request.contextPath}/ReservationController">View</a></li>
-									<li><a
-										href="${pageContext.request.contextPath}/AllocationControler">
-											Email</a></li>
-									<li><a
-										href="${pageContext.request.contextPath}/BookControler">Report</a></li>
+										<li><a href="https://mail.google.com/mail/u/0/#inbox">Email</a></li>
+									
 
 								</ul>
-
-
-
 
 
 								</nav>
@@ -108,6 +100,18 @@
 						<button class="btn btn-primary"
 							onclick="window.location.href='add-reservation.jsp'">Add
 							New Reservation</button>
+							
+		
+<br></br>
+
+						<form  action="ReservationReport.jsp"  method="post">  
+
+<input type="text" name="month" placeholder="Enter the month..">
+
+<input type="submit"  value="generate report" >
+
+
+</form>
 
 
 						<table border=1 class="table table-striped table-bordered"
@@ -120,7 +124,7 @@
 									<th>Time</th>
 									<th>Pickup Date</th>
 									<th>Return Date</th>
-									<th>No of Days</th>
+									<!-- <th>No of Days</th> -->
 									<th>No of passengers</th>
 									<th>Actions</th>
 								</tr>
@@ -133,7 +137,7 @@
 										<td>${r.time1}</td>
 										<td>${r.pickupdate}</td>
 										<td>${r.returndate}</td>
-										<td>${r.numofdays}</td>
+										<%-- <td>${r.numofdays}</td> --%>
 										<td>${r.numofpassengers}</td>
 										<td><a
 											href="${pageContext.request.contextPath}/ReservationController?action=EDIT&rid=${r.rid}">Edit</a>
@@ -159,20 +163,11 @@
 
 
 
-
 			</div>
-
-
-
-
 
 		</div>
 	</div>
 	</div>
-
-
-
-
 
 
 	<script>
