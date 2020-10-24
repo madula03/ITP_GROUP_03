@@ -7,7 +7,7 @@ public class Reservation {
 	private String time1;
 	private String pickupdate;
 	private String returndate;
-	private String numofdays;
+	
 	private String numofpassengers;
 	public int getRid() {
 		return rid;
@@ -39,12 +39,7 @@ public class Reservation {
 	public void setReturndate(String returndate) {
 		this.returndate = returndate;
 	}
-	public String getNumofdays() {
-		return numofdays;
-	}
-	public void setNumofdays(String numofdays) {
-		this.numofdays = numofdays;
-	}
+	
 	public String getNumofpassengers() {
 		return numofpassengers;
 	}
@@ -54,7 +49,7 @@ public class Reservation {
 	@Override
 	public String toString() {
 		return "Reservation [rid=" + rid + ", location=" + location + ", time1=" + time1 + ", pickupdate=" + pickupdate
-				+ ", returndate=" + returndate + ", numofdays=" + numofdays + ", numofpassengers=" + numofpassengers
+				+ ", returndate=" + returndate + ", numofpassengers=" + numofpassengers
 				+ "]";
 	}
 	
